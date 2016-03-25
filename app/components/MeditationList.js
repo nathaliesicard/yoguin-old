@@ -6,7 +6,7 @@ var PropTypes = React.PropTypes;
 var AudioPlayer = require('./AudioPlayer');
 var songs = [
   {
-    url: "assets/stop.mp3"
+    url: "/app/assets/stop.mp3"
   }
 ]
 
@@ -17,7 +17,7 @@ function MeditationList() {
       <h3>Player 1</h3>
       <AudioPlayer songs={songs} />
       <h3>Player 2</h3>
-      <AudioPlayer dataUrl="dist/assets/songs.json" />
+      <AudioPlayer dataUrl="/app/assets/songs.json" />
     </div>
   )
 }
