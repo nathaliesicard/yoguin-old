@@ -4,7 +4,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var routes = require('./config/routes');
-var styles = require('./styles/styles');
+require("./sass/app.scss");
 
 
 
