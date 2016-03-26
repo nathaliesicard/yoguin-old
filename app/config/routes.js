@@ -11,14 +11,15 @@ var hashHistory = ReactRouter.hashHistory;
 var Main = require('../components/Main');
 var Home = require('../components/Home');
 var MeditationListContainer = require('../containers/MeditationListContainer');
-/*var ConfirmBattleContainer = require('../containers/ConfirmBattleContainer');
-var ResultsContainer = require('../containers/ResultsContainer');*/
+var MeditationPlayContainer = require('../containers/MeditationPlayContainer');
+
 
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
       <Route path='meditar' component={MeditationListContainer} />
+      <Route path='play' component={MeditationPlayContainer} />
     </Route>
   </Router>
 );

@@ -1,6 +1,8 @@
 /**
  * Created by nathaliesicard on 3/1/16.
  */
+
+  var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
