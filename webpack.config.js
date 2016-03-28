@@ -18,7 +18,12 @@ module.exports = {
       {test: /\.js$/, include: __dirname + '/app', loader: "babel-loader"},
       {test: /\.scss$/, loaders: ["style", "css", "sass"]},
       {test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
+      // { test: /\.(png|jpg|jpeg|gif|ico)$/, loader: 'url-loader?limit=8192' },
+      {
+        test: /\.(jpg|jpeg|gif|png|ico)$/,
+        exclude: /node_modules/,
+        loader:'file-loader?name=img/.[ext]&context=./app/assets'
+      },
       {test: /\.(webm|mp4)$/, loader: 'file'}
     ]
   },
