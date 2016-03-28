@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "production": "webpack -p",
-    "start-dev": "webpack-dev-server"
+    "start-dev": "webpack-dev-server",
+    "postinstall": "webpack -p -d"
   },
   "author": "",
   "license": "",
