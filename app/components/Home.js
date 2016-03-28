@@ -13,7 +13,7 @@ var styles = {
   homepageBrand: {
     background: 'transparent',
     fontFamily: 'Cookie, cursive',
-    fontSize: '4em',
+    fontSize: '9vh',
     fontWeight: 900,
     color: '#fff'
   },

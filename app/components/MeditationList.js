@@ -26,15 +26,15 @@ var styles = {
   },
   header: {
     fontWeight: '900',
-    fontSize: '7vmin'
+    fontSize: '6vmin'
   }
 };
 
-function MeditationList() {
+function MeditationList(props) {
   return (
     <div className = "col-xs-10 col-xs-offset-1 text-center" style={styles.base}>
-      <h1 style={styles.header}>Meditation List</h1>
-      <MeditationItem />
+      <h1 style={styles.header}>Elige una meditación</h1>
+      {props.children}
     </div>
   )
 }

@@ -13,18 +13,21 @@ var Home = require('../components/Home');
 var MeditationListContainer = require('../containers/MeditationListContainer');
 var MeditationPlayContainer = require('../containers/MeditationPlayContainer');
 
+
 var data = [
   {
-    name: 'Meditación 1',
+    name: 'Gratitud',
     quip: 'Learn to appreciate what you have',
     duration: 15,
-    url: "/app/assets/Meditacion_1.mp3"
+    url: "/app/assets/Meditacion_1.mp3",
+    img: "/app/assets/white-flowers-purple-bg.jpg"
   },
   {
-    name: 'Meditación 2',
+    name: 'Paz Mundial',
     quip: 'Find your inner peace',
     duration: 10,
-    url: "/app/assets/Meditacion_2.mp3"
+    url: "/app/assets/Meditacion_2.mp3",
+    img: "/app/assets/blue-flowers.jpg"
   }
 
 ]

@@ -15,15 +15,16 @@ var MeditationListContainer = React.createClass({
   render: function() {
     var MeditationItems = this.props.route.data.map(function(audio){
       return (
-        <MeditationItem name={audio.name} url={audio.url} quip={audio.quip} key={audio.name} />
+        <MeditationItem name={audio.name} url={audio.url} quip={audio.quip} img={audio.img} key={audio.name} />
       );
     });
-    console.log('meditation items are: ',MeditationItems);
 
 
     return(
       <div>
-        {MeditationItems}
+        <MeditationList>
+          {MeditationItems}
+        </MeditationList>
       </div>
       );
     }

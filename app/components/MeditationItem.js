@@ -14,23 +14,6 @@ var styles = {
   base: {
     textDecoration: 'none'
   },
-  bg: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    width: '70vmin',
-    height: '15vh',
-    border: '0px',
-    textDecoration: 'none',
-    background: 'linear-gradient(60deg,#3479dd,#344fdd)',
-    boxShadow: '0 0 3px gray',
-    color: '#fff',
-    transition: 'box-shadow .2s ease-in-out',
-    padding: '10px',
-    ':hover': {
-      background: color('#0074d9').lighten(0.2).hexString()
-    }
-  },
   bgLeft: {
     display: 'flex',
     justifyContent: 'center',
@@ -79,9 +62,32 @@ var styles = {
 };
 
 function MeditationItem(props){
+
+  var backgroundStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    width: '70vmin',
+    height: '15vh',
+    border: '0px',
+    textDecoration: 'none',
+    //background: 'linear-gradient(60deg,#3479dd,#344fdd)',
+    backgroundImage: 'url(' + props.img + ')',
+    backgroundSize: 'cover',
+    boxShadow: '0 0 3px gray',
+    color: '#fff',
+    transition: 'box-shadow .2s ease-in-out',
+    padding: '10px',
+    ':hover': {
+      //backgroundColor: color('#0074d9').lighten(0.2).hexString()
+      opacity: 0.8
+    }
+  };
+
+
   return (
       <Link to='play' style={styles.base}>
-        <div className="row" key="bg" style={styles.bg}>
+        <div className="row" key="bg" style={backgroundStyle}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
             <h3 key="title" style={styles.title}>{props.name}</h3>
             <p>{props.quip}</p>
@@ -102,7 +108,8 @@ MeditationItem.propTypes = {
   // meditationId: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  quip: PropTypes.string.isRequired
+  quip: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired
 }
 
 
