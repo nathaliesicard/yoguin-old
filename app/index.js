@@ -5,7 +5,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var routes = require('./config/routes');
 require("./sass/app.scss");
-
+require('bootstrap');
 
 
 ReactDOM.render(

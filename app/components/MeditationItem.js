@@ -83,11 +83,11 @@ function MeditationItem(props){
       <Link to='play' style={styles.base}>
         <div className="row" key="bg" style={styles.bg}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
-            <h3 key="title" style={styles.title}>Gratitude</h3>
-            <p>Learn to appreciate what you have.</p>
+            <h3 key="title" style={styles.title}>{props.name}</h3>
+            <p>{props.quip}</p>
           </div>
           <div className="col-xs-3" key="bgRight" style={styles.bgRight}>
-            <button key="button" id={props.meditationId} style={styles.button}>
+            <button key="button" style={styles.button}>
               <i className="fa fa-play-circle"></i>
             </button>
             <span>15 min</span>
@@ -99,7 +99,10 @@ function MeditationItem(props){
 
 
 MeditationItem.propTypes = {
-  meditationId: PropTypes.string.isRequired,
+  // meditationId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  quip: PropTypes.string.isRequired
 }
 
 
