@@ -22,9 +22,11 @@ module.exports = {
       {
         test: /\.(jpg|jpeg|gif|png|ico)$/,
         exclude: /node_modules/,
-        loader:'file-loader?name=img/.[ext]&context=./app/assets'
+        loader:'file-loader?name=img/[path][name].[ext]&context=./app/assets/images'
       },
-      {test: /\.(webm|mp4)$/, loader: 'file'}
+      {test: /\.(webm|mp4)$/, loader: 'file'},
+      {test: /\.(wav|mp3)$/,
+        loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'}
     ]
   },
   output: {

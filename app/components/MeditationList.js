@@ -33,7 +33,7 @@ var styles = {
 function MeditationList(props) {
   return (
     <div className = "col-xs-10 col-xs-offset-1 text-center" style={styles.base}>
-      <h1 style={styles.header}>Elige una meditación</h1>
+      <h1 style={styles.header}>{props.header}</h1>
       {props.children}
     </div>
   )

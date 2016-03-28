@@ -22,7 +22,7 @@ var MeditationListContainer = React.createClass({
 
     return(
       <div>
-        <MeditationList>
+        <MeditationList header='Elige una meditación'>
           {MeditationItems}
         </MeditationList>
       </div>

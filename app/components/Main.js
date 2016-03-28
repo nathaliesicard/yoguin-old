@@ -4,9 +4,9 @@
 var React = require('react');
 const ReactDriveIn = require("react-drive-in");
 
-var bgImgSrc = require('../assets/bg.jpg');
+var bgImgSrc = require('../assets/images/bg.jpg');
 
-var bgVideoSrc = require('../assets/video-5.mp4');
+var bgVideoSrc = require('../assets/videos/video-5.mp4');
 
 var Main = React.createClass({
 

@@ -6,6 +6,8 @@ var ReactDOM = require('react-dom');
 var routes = require('./config/routes');
 require("./sass/app.scss");
 require('bootstrap');
+require.context('./assets/images', true, /^\.\//);
+require.context('./assets/audios', true, /^\.\/.*\.mp3$/);
 
 
 ReactDOM.render(

@@ -4,6 +4,8 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var AudioPlayer = require('./AudioPlayer');
+var MeditationList = require('../components/MeditationList');
+
 var songs = [
   {
     name: 'Meditación 1',
@@ -13,10 +15,9 @@ var songs = [
 
 function MeditationPlay() {
   return (
-    <div className = "jumbotron col-sm-6 col-sm-offset-3 text-center">
-      <h1>Playing Meditation...</h1>
+    <MeditationList header="Playing Meditation">
       <AudioPlayer songs={songs} />
-    </div>
+    </MeditationList>
   )
 }
 
