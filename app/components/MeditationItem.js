@@ -86,7 +86,7 @@ function MeditationItem(props){
 
 
   return (
-      <Link to='play' style={styles.base}>
+      <div style={styles.base} onClick={props.handleClickForPlay}>
         <div className="row" key="bg" style={backgroundStyle}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
             <h3 key="title" style={styles.title}>{props.name}</h3>
@@ -99,7 +99,7 @@ function MeditationItem(props){
             <span>15 min</span>
           </div>
         </div>
-      </Link>
+      </div>
   );
 }
 
@@ -109,8 +109,9 @@ MeditationItem.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   quip: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
-}
+  img: PropTypes.string.isRequired,
+  handleClickForPlay: PropTypes.func.isRequired
+};
 
 
 

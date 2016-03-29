@@ -14,29 +14,12 @@ var MeditationListContainer = require('../containers/MeditationListContainer');
 var MeditationPlayContainer = require('../containers/MeditationPlayContainer');
 
 
-var data = [
-  {
-    name: 'Gratitud',
-    quip: 'Learn to appreciate what you have',
-    duration: 15,
-    url: "/audio/Meditacion_1.mp3",
-    img: "/img/white-flowers-purple-bg.jpg"
-  },
-  {
-    name: 'Paz Mundial',
-    quip: 'Find your inner peace',
-    duration: 10,
-    url: "/audio/Meditacion_2.mp3",
-    img: "/img/blue-flowers.jpg"
-  }
-
-]
 
 var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
-      <Route path='meditar' data={data} component={MeditationListContainer} />
+      <Route path='meditar' component={MeditationListContainer} />
       <Route path='play' component={MeditationPlayContainer} />
     </Route>
   </Router>

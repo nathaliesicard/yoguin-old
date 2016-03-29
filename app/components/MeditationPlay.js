@@ -13,7 +13,8 @@ var songs = [
   }
 ]
 
-function MeditationPlay() {
+function MeditationPlay(props) {
+  console.log('props are: ',props);
   return (
     <MeditationList header="Playing Meditation">
       <AudioPlayer songs={songs} />
@@ -21,5 +22,14 @@ function MeditationPlay() {
   )
 }
 
+MeditationPlay.propTypes = {
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  quip: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  duration: PropTypes.number.isRequired,
+  key: PropTypes.string.isRequired
+
+};
 
 module.exports = MeditationPlay;
