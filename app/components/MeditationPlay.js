@@ -6,18 +6,13 @@ var PropTypes = React.PropTypes;
 var AudioPlayer = require('./AudioPlayer');
 var MeditationList = require('../components/MeditationList');
 
-var songs = [
-  {
-    name: 'Meditación 1',
-    url: "/app/assets/Meditacion_1.mp3"
-  }
-]
 
 function MeditationPlay(props) {
   console.log('props are: ',props);
+  var meditation = props;
   return (
     <MeditationList header="Playing Meditation">
-      <AudioPlayer songs={songs} />
+      <AudioPlayer meditation={props} />
     </MeditationList>
   )
 }
