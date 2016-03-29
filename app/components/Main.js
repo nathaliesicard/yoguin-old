@@ -12,10 +12,11 @@ var Main = React.createClass({
 
   render: function() {
     return (
-      <div className="main-container">
+      <div>
         <ReactDriveIn
           show={bgVideoSrc}
           poster={bgImgSrc}
+          loop
         />
         {this.props.children}
       </div>
