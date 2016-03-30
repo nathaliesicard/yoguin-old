@@ -8,8 +8,24 @@ var styles= {
   button: {
     width: '60px',
     height: '60px',
-    background: 'pink',
-    borderRadius: '50%'
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    lineHeight: '50px',
+    border: '0px',
+    borderRadius: '50%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: '#949494',
+    boxShadow: '0 0 3px gray',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    transition: 'box-shadow .2s ease-in-out',
+    ':hover': {
+      background: color('#cccccc').hexString()
+    }
   }
 };
 

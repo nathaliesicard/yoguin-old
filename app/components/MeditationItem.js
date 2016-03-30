@@ -41,7 +41,7 @@ var styles = {
     alignItems: 'center',
     alignSelf: 'center',
     justifyContent: 'center',
-    flexShrink: 2,
+    paddingBottom: '2px',
     width: '48px',
     height: '48px',
     lineHeight: '50px',

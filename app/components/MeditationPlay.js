@@ -10,7 +10,7 @@ var MeditationList = require('../components/MeditationList');
 function MeditationPlay(props) {
   var meditation = props;
   return (
-    <MeditationList header="Playing Meditation">
+    <MeditationList header={props.name}>
       <AudioPlayer meditation={props} />
     </MeditationList>
   )
