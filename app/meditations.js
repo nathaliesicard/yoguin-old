@@ -10,7 +10,7 @@ module.exports = {
     name: 'Paz Mundial',
     quip: 'Find your inner peace',
     duration: 10,
-    url: "/audio/Meditacion_2.mp3",
+    url: "/audio/sound.mp3",
     img: "/img/blue-flowers.jpg"
   }
 

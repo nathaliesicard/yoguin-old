@@ -13,10 +13,7 @@ var AudioPlayer = React.createClass({
   },
   getInitialState: function (){
     return {
-      isPlaying: false,
-      isPause: false,
-      isLoading: false,
-      volume: 0.5
+      status: 'NOT_STARTED' // 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
     }
   },
 
@@ -33,40 +30,57 @@ var AudioPlayer = React.createClass({
   },
   componentDidMount: function () {
     this.meditation = new Audio(this.state.url);
+    var self = this;
+    this.meditation.addEventListener('ended', function(){
+      console.log('Audio ended');
+      self.setState({
+        status: 'ENDED'
+      });
+    });
 
   },
   componentWillUnmount: function () {
     this.meditation.pause();
-    delete this.meditation;
-
   },
 
   onPlayBtnClick: function(){
     console.log('onPlayBtnClick function ran');
-    if (this.state.isPlaying && !this.state.isPause) {
-      return;
-    }
-    this.meditation.play();
     this.setState({
-      isPlaying: true
+      status: 'IS_PLAYING'
     });
+    this.meditation.play();
   },
 
   onPauseBtnClick: function() {
     console.log('onPauseBtnClick function ran');
-    var isPause = !this.state.isPause;
-    this.setState({ isPause: isPause });
-    isPause ? this.pause() : this.play();
+    this.setState({
+      status: 'IS_PAUSED'
+    });
+    this.meditation.pause();
   },
 
+
   render: function() {
-    console.log(this.state.name);
+    var button;
+
+    if (this.state.status == 'NOT_STARTED') {
+        button = <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
+      }
+      else if (this.state.status == 'IS_PLAYING') {
+        button = <PauseButton onPauseBtnClick={this.onPauseBtnClick} />
+      }
+      else if (this.state.status == 'IS_PAUSED') {
+        button = <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
+      }
+      else if (this.state.status == 'ENDED') {
+      button = <p>Thanks for playing</p>
+      }
+      else {
+        throw new Error('weird status');
+      }
     return(
       <div>
-        <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
-        <button>
-        Pause
-      </button>
+        {button}
         <p>
           {this.state.name}
         </p>

@@ -27,11 +27,15 @@ PlayButton.propTypes = {
 
 function PauseButton(props) {
   return (
-    <button style={styles.button}>
+    <button onClick={props.onPauseBtnClick} style={styles.button}>
       <i className="fa fa-pause"></i>
     </button>
   )
 }
+
+PauseButton.propTypes = {
+  onPauseBtnClick: PropTypes.func.isRequired
+};
 
 module.exports = {
   PlayButton: Radium(PlayButton),

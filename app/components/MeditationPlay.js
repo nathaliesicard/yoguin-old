@@ -21,9 +21,7 @@ MeditationPlay.propTypes = {
   url: PropTypes.string.isRequired,
   quip: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  duration: PropTypes.number.isRequired,
-  key: PropTypes.string.isRequired
-
+  duration: PropTypes.number.isRequired
 };
 
 module.exports = MeditationPlay;
