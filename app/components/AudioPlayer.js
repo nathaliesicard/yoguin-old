@@ -5,6 +5,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var PlayButton = require('../components/AudioPlayerButtons').PlayButton;
 var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
+var StopButton = require('../components/AudioPlayerButtons').StopButton;
 
 
 var AudioPlayer = React.createClass({
@@ -56,9 +57,15 @@ var AudioPlayer = React.createClass({
     this.setState({
       status: 'IS_PAUSED'
     });
-    this.meditation.pause();
+    this.meditation.stop();
   },
-
+    onStopBtnClick: function() {
+      console.log('onStopBtnClick function ran');
+      this.setState({
+        status: 'IS_PAUSED'
+      });
+      this.meditation.pause();
+    },
 
   render: function() {
     var button;
@@ -73,7 +80,7 @@ var AudioPlayer = React.createClass({
         button = <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
       }
       else if (this.state.status == 'ENDED') {
-      button = <p>Thanks for playing</p>
+        button = <p>Thanks for playing</p>
       }
       else {
         throw new Error('weird status');
@@ -81,6 +88,7 @@ var AudioPlayer = React.createClass({
     return(
       <div>
         {button}
+        <StopButton onStopBtnClick={this.onStopBtnClick} />
         <p>
           {this.state.name}
         </p>

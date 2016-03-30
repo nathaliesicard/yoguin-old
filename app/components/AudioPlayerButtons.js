@@ -37,8 +37,21 @@ PauseButton.propTypes = {
   onPauseBtnClick: PropTypes.func.isRequired
 };
 
+function StopButton(props) {
+  return (
+    <button onClick={props.onStopBtnClick} style={styles.button}>
+      <i className="fa fa-stop"></i>
+    </button>
+  )
+}
+
+StopButton.propTypes = {
+  onStopBtnClick: PropTypes.func.isRequired
+};
+
+
 module.exports = {
   PlayButton: Radium(PlayButton),
-  PauseButton: Radium(PauseButton)
-
+  PauseButton: Radium(PauseButton),
+  StopButton: Radium(StopButton)
 }
