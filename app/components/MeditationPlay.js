@@ -8,7 +8,6 @@ var MeditationList = require('../components/MeditationList');
 
 
 function MeditationPlay(props) {
-  console.log('props are: ',props);
   var meditation = props;
   return (
     <MeditationList header="Playing Meditation">
