@@ -10,6 +10,7 @@ var Modal = require('react-modal');
 var ModalStyles = require('../styles/ModalStyles');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var TimeLabel = require('../components/TimeLabel');
 
 
 var AudioPlayer = React.createClass({
@@ -19,7 +20,9 @@ var AudioPlayer = React.createClass({
   getInitialState: function (){
     return {
       status: 'NOT_STARTED', // 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
-      modalIsOpen: false
+      modalIsOpen: false,
+      timeupdated: 0,
+      duration: 0
     }
   },
 
@@ -36,11 +39,22 @@ var AudioPlayer = React.createClass({
   },
   componentDidMount: function () {
     this.meditation = new Audio(this.state.url);
+    var duration = this.meditation.duration;
+    console.log('duration ', duration);
     var self = this;
     this.meditation.addEventListener('ended', function(){
-      console.log('Audio ended');
       self.setState({
         status: 'ENDED'
+      });
+    });
+    this.meditation.addEventListener('timeupdate', function(){
+      self.setState({
+        timeupdated: self.meditation.currentTime
+      });
+    });
+    this.meditation.addEventListener('durationchange', function(){
+      self.setState({
+        duration: self.meditation.duration
       });
     });
 
@@ -125,6 +139,7 @@ var AudioPlayer = React.createClass({
         <div className="col-xs-6">
         {stopButton}
         </div>
+        <TimeLabel timer={this.state.timeupdated} duration={this.state.duration}/>
       </div>
     );
   }
