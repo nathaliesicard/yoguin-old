@@ -5,8 +5,10 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var color = require('color');
 var Radium = require('radium');
-var bgVideoSrc = require('../assets/videos/video.mp4');
-var bgImgSrc = require('../assets/images/bg.jpg');
+var bgVideoSrc = require('../assets/videos/video_2.mp4');
+var bgVideoSrcTwo = require('../assets/videos/video_2.webm');
+
+var bgImgSrc = require('../assets/images/poster.jpg');
 
 
 function BgVideo(props){
@@ -21,13 +23,14 @@ function BgVideo(props){
       height: 'auto',
       minHeight: '100%',
       zIndex: -100,
-      background: 'transparent url('+ bgImgSrc +') no-repeat cover'
+      background: 'url('+ bgImgSrc +') no-repeat cover'
     }
   };
 
   return (
     <video autoPlay="true" loop style={styles.video}>
         <source src={bgVideoSrc} type="video/mp4" />
+        <source src={bgVideoSrcTwo} type="video/webm" />
     </video>
 
   );
