@@ -55,7 +55,8 @@ $animate-sec: 1.5s;
 }
 
 .audio-volume-bar-container {
-	float: left;
+	display: flex;
+	align-self: center;
 	padding-left: $common-padding;
 	padding-top: 2px;
 

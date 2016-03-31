@@ -11,6 +11,7 @@ var ModalStyles = require('../styles/ModalStyles');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var TimeLabel = require('../components/TimeLabel');
+var VolumeBar = require('../components/VolumeBar');
 
 
 var AudioPlayer = React.createClass({
@@ -22,7 +23,8 @@ var AudioPlayer = React.createClass({
       status: 'NOT_STARTED', // 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
       modalIsOpen: false,
       timeupdated: 0,
-      duration: 0
+      duration: 0,
+      volume: 0.5
     }
   },
 
@@ -40,7 +42,6 @@ var AudioPlayer = React.createClass({
   componentDidMount: function () {
     this.meditation = new Audio(this.state.url);
     var duration = this.meditation.duration;
-    console.log('duration ', duration);
     var self = this;
     this.meditation.addEventListener('ended', function(){
       self.setState({
@@ -78,6 +79,15 @@ var AudioPlayer = React.createClass({
     });
     this.meditation.pause();
   },
+
+  adjustVolumeTo: function(percent) {
+    console.log('adjustVolumeTo formula triggered with the volume',percent);
+    this.setState({ volume: percent });
+    if (this.meditation) {
+      this.meditation.volume = percent;
+    }
+  },
+
   onStopBtnClick: function() {
       console.log('onStopBtnClick function ran');
       this.setState({
@@ -86,6 +96,7 @@ var AudioPlayer = React.createClass({
       this.meditation.pause();
       this.openModal();
     },
+
   openModal: function() {
     this.setState({modalIsOpen: true});
   },
@@ -140,6 +151,7 @@ var AudioPlayer = React.createClass({
         {stopButton}
         </div>
         <TimeLabel timer={this.state.timeupdated} duration={this.state.duration}/>
+        <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
       </div>
     );
   }
