@@ -48,7 +48,7 @@ var VolumeBar = React.createClass({
   },
 
   adjustVolumeTo: function(e) {
-    var container = $(this.refs.audioVolumePercentContainer.getDOMNode());
+    var container = $(this.refs.audioVolumePercentContainer);
     var containerStartY = container.offset().top;
     var percent = (e.clientY - containerStartY) / container.height();
     percent = 1 - percent;
