@@ -81,7 +81,7 @@ var AudioPlayer = React.createClass({
   },
 
   adjustVolumeTo: function(percent) {
-    console.log('adjustVolumeTo formula triggered with the volume',percent);
+    console.log('adjustVolumeTo formula triggered with the volume: ',percent);
     this.setState({ volume: percent });
     if (this.meditation) {
       this.meditation.volume = percent;
