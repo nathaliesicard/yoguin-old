@@ -13,14 +13,15 @@ var styles = {
   homepageBrand: {
     background: 'transparent',
     fontFamily: 'Cookie, cursive',
-    fontSize: '9vh',
+    fontSize: '60px',
     fontWeight: 900,
     color: '#fff'
   },
   homepageDesc: {
     fontFamily: 'Raleway, sans-serif',
-    fontWeight: 300,
-    color: '#333'
+    fontWeight: 400,
+    color: '#fff',
+    fontSize: '25px'
   }
 };
 
