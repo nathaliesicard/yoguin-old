@@ -7,7 +7,7 @@ var styles = {
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    height: '65vh'
+    height: '60vh'
   }
 };
 

@@ -2,8 +2,13 @@
  * Created by nathaliesicard on 3/17/16.
  */
 var React = require('react');
-var styles = require('../styles/styles');
 
+
+var styles = {
+  transparentBg: {
+    background: 'transparent'
+  }
+}
 
 function MainContainer(props){
   return (

@@ -9,21 +9,21 @@ var bgImgSrc = require('../assets/images/bg.jpg');
 var bgVideoSrc = require('../assets/videos/video.mp4');
 var BgVideo = require('./BgVideo');
 
-/*var Main = React.createClass({
-
-  render: function() {
-    return (
-      <div>
-        <ReactDriveIn
-          show={bgVideoSrc}
-          poster={bgImgSrc}
-          loop
-        />
-        {this.props.children}
-      </div>
-    );
-  }
-});*/
+//var Main = React.createClass({
+//
+//  render: function() {
+//    return (
+//      <div>
+//        <ReactDriveIn
+//          show={bgVideoSrc}
+//          poster={bgImgSrc}
+//          loop
+//        />
+//        {this.props.children}
+//      </div>
+//    );
+//  }
+//});
 
 var Main = React.createClass({
 

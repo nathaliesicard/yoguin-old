@@ -20,8 +20,7 @@ var bgImgSrc = require('../assets/images/poster.jpg');
       minWidth: '100%',
       height: 'auto',
       minHeight: '100%',
-      zIndex: -100,
-      background: 'transparent url(' + bgImgSrc + ') no-repeat cover'
+      zIndex: -100
     }
   };
 
@@ -29,48 +28,59 @@ var bgImgSrc = require('../assets/images/poster.jpg');
 var BgVideo = React.createClass({
   getInitialState: function (){
     return {
-      duration: 0
+      //duration: 0,
+      errored: false
     }
   },
-  componentDidMount: function() {
-    var video = this.refs.bgVideo;
-    var self = this;
+  //componentDidMount: function() {
+  //  var video = this.refs.bgVideo;
+  //  var self = this;
+  //
+  //  // One way to do the artificial video loop
+  //  /*
+  //    video.addEventListener('error', function () {
+  //    video.load();
+  //    video.play();
+  //    }, false);
+  //    */
+  //  video.addEventListener('timeupdate', function(){
+  //    console.log('Timeupdate: ',video.currentTime)
+  //   /* if (video.currentTime > 7) {
+  //      console.log('Restarted');
+  //      video.currentTime = 0;
+  //      video.play();
+  //    }*/
+  //  });
+  //  video.addEventListener('error', function(err){
+  //    console.error('Error event',err.error);
+  //  });
+  //  video.addEventListener('durationchange', function(){
+  //    self.setState({
+  //      duration: video.duration
+  //    });
+  //  });
+  //  if (typeof video.loop == 'boolean') { // loop supported
+  //    video.loop = true;
+  //  }
+  //
+  //},
 
-    // One way to do the artificial video loop
-    /*
-      video.addEventListener('error', function () {
-      video.load();
-      video.play();
-      }, false);
-      */
-    video.addEventListener('timeupdate', function(){
-      console.log('Timeupdate: ',video.currentTime)
-      if (video.currentTime > 7) {
-        console.log('Restarted');
-        video.currentTime = 0;
-        video.play();
-      }
-    });
-    video.addEventListener('durationchange', function(){
-      self.setState({
-        duration: video.duration
-      });
-    });
-    if (typeof video.loop == 'boolean') { // loop supported
-      video.loop = true;
-    }
-
+  errored: function() {
+    this.setState({ errored: true });
   },
 
   render: function() {
-
+    if (this.state.errored) {
+      return (
+        <img src={bgImgSrc} style={styles.video} />
+      );
+    }
 
     return (
-      <video ref="bgVideo" loop autoPlay="true" poster={bgImgSrc} style={styles.video}>
+      <video loop autoPlay="true" poster={bgImgSrc} style={styles.video} onError={this.errored}>
         <source src={bgVideoSrc} type="video/mp4"/>
         <source src={bgVideoSrcTwo} type="video/webm"/>
       </video>
-
     );
   }
 });

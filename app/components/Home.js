@@ -13,7 +13,7 @@ var styles = {
   homepageBrand: {
     background: 'transparent',
     fontFamily: 'Cookie, cursive',
-    fontSize: '60px',
+    fontSize: '15vw',
     fontWeight: 900,
     color: '#fff'
   },
@@ -21,7 +21,7 @@ var styles = {
     fontFamily: 'Raleway, sans-serif',
     fontWeight: 400,
     color: '#fff',
-    fontSize: '25px'
+    fontSize: '5vw'
   }
 };
 

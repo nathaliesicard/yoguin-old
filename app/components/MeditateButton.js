@@ -12,8 +12,8 @@ var Radium = require('radium');
 var styles = {
   base: {
     display: 'block',
-    width: '60px',
-    height: '60px',
+    width: '10vw',
+    height: '10vw',
     lineHeight: '50px',
     border: '0px',
     borderRadius: '50%',
