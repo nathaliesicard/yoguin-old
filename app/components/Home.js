@@ -37,7 +37,7 @@ var Home = React.createClass({
         homepageBrand: {
           background: 'transparent',
           fontFamily: 'Cookie, cursive',
-          fontSize: '7em',
+          fontSize: '8em',
           fontWeight: 900,
           color: '#fff'
         },
