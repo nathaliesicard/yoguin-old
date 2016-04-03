@@ -62,6 +62,23 @@ var AudioPlayer = React.createClass({
   },
   componentWillUnmount: function () {
     this.meditation.pause();
+    this.meditation.removeEventListener('ended', function(){
+      self.setState({
+        status: 'ENDED'
+      });
+    });
+    this.meditation.removeEventListener('timeupdate', function(){
+      self.setState({
+        timeupdated: self.meditation.currentTime
+      });
+    });
+    this.meditation.removeEventListener('durationchange', function(){
+      self.setState({
+        duration: self.meditation.duration
+      });
+    });
+
+
   },
 
   onPlayBtnClick: function(){

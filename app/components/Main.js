@@ -2,6 +2,7 @@
  * Created by nathaliesicard on 3/17/16.
  */
 var React = require('react');
+var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 const ReactDriveIn = require("react-drive-in");
 
 var bgImgSrc = require('../assets/images/bg.jpg');
@@ -25,8 +26,10 @@ var BgVideo = require('./BgVideo');
 //  }
 //});
 
-var Main = React.createClass({
 
+
+var Main = React.createClass({
+  mixins: [ ScreenTypeMixin ],
   render: function() {
     return (
       <div>

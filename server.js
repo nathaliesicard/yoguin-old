@@ -9,7 +9,10 @@ var serve =require('koa-better-static');
 
 var app = koa();
 app.use(range);
-app.use(serve('dist', {index: 'index.html'}));
+app.use(serve('dist', {
+  index: 'index.html',
+  maxage: 14400000
+}));
 
 var port = process.env.PORT || 8888;
 app.listen(port);
