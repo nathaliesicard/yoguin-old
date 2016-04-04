@@ -4,17 +4,26 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var TimeFormatterMixin = require('./../mixins/TimeFormatterMixin');
+var ProgressCircle = require('./ProgressCircle');
 
 var TimeLabel = React.createClass({
   mixins: [ TimeFormatterMixin ],
+  componentDidMount: function() {
+
+  },
   render: function () {
     var timer = this.secondsToTime(this.props.timer);
     var duration = this.secondsToTime(this.props.duration);
+    var percentage = Math.round((this.props.timer / this.props.duration) * 100);
+    console.log('Timer: ',timer+'Duration: ',duration + 'Percentage ',percentage);
     return (
       <div>
-        <progress value={this.props.timer} max={this.props.duration}></progress>
-        <br />
-        {timer} / {duration}
+          <ProgressCircle
+            strokeWidth="10"
+            radius="100"
+            percentage={percentage}
+            timer={timer}
+            duration={duration} />
       </div>
     );
   }

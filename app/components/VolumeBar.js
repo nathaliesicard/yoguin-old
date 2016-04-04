@@ -19,7 +19,7 @@ var VolumeBar = React.createClass({
           alignSelf: 'center',
           alignItems: 'center',
           justifyContent: 'center',
-          marginTop: '40vh'
+          marginTop: '10vh'
         },
         minMaxBtn: {
           display: 'flex',
