@@ -3,6 +3,7 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var color = require('color');
 var Radium = require('radium');
+var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
 var styles= {
   button: {
@@ -30,41 +31,48 @@ var styles= {
   }
 };
 
-function PlayButton(props) {
-  return (
-    <button onClick={props.onPlayBtnClick} style={styles.button}>
-      <i className="fa fa-play"></i>
-    </button>
-  )
-}
+var PlayButton = React.createClass({
+  propTypes: {
+    onPlayBtnClick: React.PropTypes.func.isRequired
+  },
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button onClick={this.props.onPlayBtnClick} style={styles.button}>
+        <i className="fa fa-play"></i>
+      </button>
+    );
+  }
+});
 
-PlayButton.propTypes = {
-  onPlayBtnClick: PropTypes.func.isRequired
-};
+var PauseButton = React.createClass({
+  propTypes: {
+    onPauseBtnClick: React.PropTypes.func.isRequired
+  },
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button onClick={this.props.onPauseBtnClick} style={styles.button}>
+        <i className="fa fa-pause"></i>
+      </button>
+    );
+  }
+});
 
-function PauseButton(props) {
-  return (
-    <button onClick={props.onPauseBtnClick} style={styles.button}>
-      <i className="fa fa-pause"></i>
-    </button>
-  )
-}
+var StopButton = React.createClass({
+  propTypes: {
+    onStopBtnClick: React.PropTypes.func.isRequired
+  },
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button onClick={this.props.onStopBtnClick} style={styles.button}>
+        <i className="fa fa-stop"></i>
+      </button>
+    );
+  }
+});
 
-PauseButton.propTypes = {
-  onPauseBtnClick: PropTypes.func.isRequired
-};
-
-function StopButton(props) {
-  return (
-    <button onClick={props.onStopBtnClick} style={styles.button}>
-      <i className="fa fa-stop"></i>
-    </button>
-  )
-}
-
-StopButton.propTypes = {
-  onStopBtnClick: PropTypes.func.isRequired
-};
 
 
 module.exports = {
