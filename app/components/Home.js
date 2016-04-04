@@ -23,7 +23,8 @@ var Home = React.createClass({
           fontFamily: 'Cookie, cursive',
           fontSize: '6em',
           fontWeight: 900,
-          color: '#fff'
+          color: '#fff',
+          marginBottom:'0.25em'
         },
         homepageDesc: {
           fontFamily: 'Raleway, sans-serif',
@@ -39,7 +40,8 @@ var Home = React.createClass({
           fontFamily: 'Cookie, cursive',
           fontSize: '8em',
           fontWeight: 900,
-          color: '#fff'
+          color: '#fff',
+          marginBottom:'0.25em'
         },
         homepageDesc: {
           fontFamily: 'Raleway, sans-serif',
