@@ -5,6 +5,38 @@ var React = require('react');
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 
+var styles= {
+  container: {
+    display: 'flex',
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '40vh'
+  },
+  minMaxBtn: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '50%',
+    lineHeight: '50px',
+    background: 'transparent',
+    textAlign: 'center',
+    cursor: 'pointer'
+  },
+  volumeBar: {
+    width: '100%',
+    lineHeight: '50px',
+    background: 'transparent',
+    textAlign: 'center',
+    cursor: 'pointer'
+
+  },
+  glyph: {
+    fontSize: '1.5em',
+    color: '#3479dd'
+  }
+};
+
 var VolumeBar = React.createClass({
 
   render: function() {
@@ -13,22 +45,17 @@ var VolumeBar = React.createClass({
     var style = {top: (100 - percent) + "%"};
 
     return (
-      <div ref="audioVolumeBarContainer" className="audio-volume-bar-container">
-        <progress ref="volumeBar" value={percent} max='100' onClick={this.adjustVolumeTo}></progress>
-        <div className="audio-volume-min-max" onClick={this.volumeToMax}>
-          <Glyphicon glyph="volume-up" />
+      <div style={styles.container}>
+        <div style={styles.minMaxBtn} onClick={this.volumeToMin}>
+          <Glyphicon glyph="volume-off" style={styles.glyph} />
         </div>
-
-        <div className="audio-volume-bar">
-
-          <div ref="audioVolumePercentContainer" className="audio-volume-percent-container" >
-
-            <div className="audio-volume-percent" style={style}></div>
-
-          </div>
-        </div>
-        <div className="audio-volume-min-max" onClick={this.volumeToMin}>
-          <Glyphicon glyph="volume-off" />
+        <progress ref="volumeBar"
+                  value={percent} max='100'
+                  onClick={this.adjustVolumeTo}
+                  style={styles.volumeBar}>
+        </progress>
+        <div style={styles.minMaxBtn} onClick={this.volumeToMax}>
+          <Glyphicon glyph="volume-up" style={styles.glyph}/>
         </div>
       </div>
     );
@@ -42,13 +69,6 @@ var VolumeBar = React.createClass({
     this.props.adjustVolumeTo(percent);
   },
 
-  //adjustVolumeTo: function(e) {
-  //  var container = $(this.refs.audioVolumePercentContainer);
-  //  var containerStartY = container.offset().top;
-  //  var percent = (e.clientY - containerStartY) / container.height();
-  //  percent = 1 - percent;
-  //  this.props.adjustVolumeTo(percent);
-  //},
 
   volumeToMax: function() {
     this.props.adjustVolumeTo(1);

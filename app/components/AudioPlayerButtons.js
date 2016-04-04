@@ -22,6 +22,7 @@ var styles= {
     fontSize: '20px',
     fontWeight: 'bold',
     color: '#fff',
+    cursor: 'pointer',
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
       background: color('#cccccc').hexString()
