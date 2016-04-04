@@ -5,23 +5,6 @@ var React = require('react');
 var Button = require('react-bootstrap').Button;
 var Glyphicon = require('react-bootstrap').Glyphicon;
 
-
-var styles = {
-
- audioVolumeBarContainer: {
-   display: 'flex',
-   paddingLeft: '2px',
-   paddingTop: '2px'
-
- },
-  audioVolumeBar: {
-    position: 'absolute',
-    zIndex: 1001,
-    background: '#ddd'
-  }
-};
-
-
 var VolumeBar = React.createClass({
 
   render: function() {
@@ -32,16 +15,18 @@ var VolumeBar = React.createClass({
 
     return (
       <div ref="audioVolumeBarContainer" className="audio-volume-bar-container">
+        <div className="audio-volume-min-max" onClick={this.volumeToMax}>
+          <Glyphicon glyph="volume-up" />
+        </div>
+
         <div className="audio-volume-bar">
-          <div className="audio-volume-min-max" onClick={this.volumeToMax}>
-            <Glyphicon glyph="volume-up" />
-          </div>
+
           <div ref="audioVolumePercentContainer" className="audio-volume-percent-container" onClick={this.adjustVolumeTo}>
             <div className="audio-volume-percent" style={style}></div>
           </div>
-          <div className="audio-volume-min-max" onClick={this.volumeToMin}>
-            <Glyphicon glyph="volume-off" />
-          </div>
+        </div>
+        <div className="audio-volume-min-max" onClick={this.volumeToMin}>
+          <Glyphicon glyph="volume-off" />
         </div>
       </div>
     );

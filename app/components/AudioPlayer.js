@@ -158,13 +158,19 @@ var AudioPlayer = React.createClass({
         throw new Error('weird status');
       }
 
+    var styles= {
+      center: {
+        display: 'flex',
+        justifyContent: 'center'
+      }
+    };
     return(
-      <div className="row">
+      <div className="col-xs-10">
         {text}
-        <div className="col-xs-6">
+        <div className="col-xs-6" style={styles.center}>
           {button}
         </div>
-        <div className="col-xs-6">
+        <div className="col-xs-6" style={styles.center}>
         {stopButton}
         </div>
         <TimeLabel timer={this.state.timeupdated} duration={this.state.duration}/>
