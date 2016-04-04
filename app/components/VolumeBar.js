@@ -11,18 +11,20 @@ var VolumeBar = React.createClass({
 
     var percent = this.props.volume * 100;
     var style = {top: (100 - percent) + "%"};
-    var toggleIcon = this.props.volume == 0 ? "volume-off" : "volume-up";
 
     return (
       <div ref="audioVolumeBarContainer" className="audio-volume-bar-container">
+        <progress ref="volumeBar" value={percent} max='100' onClick={this.adjustVolumeTo}></progress>
         <div className="audio-volume-min-max" onClick={this.volumeToMax}>
           <Glyphicon glyph="volume-up" />
         </div>
 
         <div className="audio-volume-bar">
 
-          <div ref="audioVolumePercentContainer" className="audio-volume-percent-container" onClick={this.adjustVolumeTo}>
+          <div ref="audioVolumePercentContainer" className="audio-volume-percent-container" >
+
             <div className="audio-volume-percent" style={style}></div>
+
           </div>
         </div>
         <div className="audio-volume-min-max" onClick={this.volumeToMin}>
@@ -31,14 +33,22 @@ var VolumeBar = React.createClass({
       </div>
     );
   },
-
   adjustVolumeTo: function(e) {
-    var container = $(this.refs.audioVolumePercentContainer);
-    var containerStartY = container.offset().top;
-    var percent = (e.clientY - containerStartY) / container.height();
-    percent = 1 - percent;
+    var container = $(this.refs.volumeBar);
+    var containerStartX = container.offset().left;
+    var percent = (e.clientX - containerStartX) / container.width();
+    percent = percent;
+    console.log('Percent : ',percent);
     this.props.adjustVolumeTo(percent);
   },
+
+  //adjustVolumeTo: function(e) {
+  //  var container = $(this.refs.audioVolumePercentContainer);
+  //  var containerStartY = container.offset().top;
+  //  var percent = (e.clientY - containerStartY) / container.height();
+  //  percent = 1 - percent;
+  //  this.props.adjustVolumeTo(percent);
+  //},
 
   volumeToMax: function() {
     this.props.adjustVolumeTo(1);

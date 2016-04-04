@@ -82,7 +82,6 @@ var AudioPlayer = React.createClass({
   },
 
   onPlayBtnClick: function(){
-    console.log('onPlayBtnClick function ran');
     this.setState({
       status: 'IS_PLAYING'
     });
@@ -90,7 +89,6 @@ var AudioPlayer = React.createClass({
   },
 
   onPauseBtnClick: function() {
-    console.log('onPauseBtnClick function ran');
     this.setState({
       status: 'IS_PAUSED'
     });
