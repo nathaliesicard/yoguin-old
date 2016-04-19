@@ -38,6 +38,7 @@ var MeditationListContainer = React.createClass({
           quip={audio.quip}
           img={audio.img}
           key={audio.name}
+          duration={audio.duration}
           //handleClickForPlay={function() { self.handleClickForPlay(i) } }
           handleClickForPlay={ self.handleClickForPlay.bind(self, key) }
         />

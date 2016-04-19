@@ -19,6 +19,7 @@ var MeditationItem = React.createClass({
     url: React.PropTypes.string.isRequired,
     quip: React.PropTypes.string.isRequired,
     img: React.PropTypes.string.isRequired,
+    duration: React.PropTypes.number.isRequired,
     handleClickForPlay: React.PropTypes.func.isRequired
   },
   render: function () {
@@ -191,7 +192,7 @@ var MeditationItem = React.createClass({
             <button key="button" style={styles.button}>
               <i className="fa fa-play"></i>
             </button>
-            <span style={styles.duration}>15 min</span>
+            <span style={styles.duration}>{this.props.duration} min</span>
           </div>
         </div>
       </div>
