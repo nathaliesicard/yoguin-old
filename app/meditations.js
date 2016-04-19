@@ -17,7 +17,7 @@ module.exports = {
     name: 'Aprendiendo a Meditar 01',
     quip: 'Práctica de meditación',
     duration: 10,
-    url: "/audio/yoguin-01.mp3",
+    url: "/audio/aprendiendo-01.mp3",
     img: "/img/blue-flowers.jpg"
   }
 
