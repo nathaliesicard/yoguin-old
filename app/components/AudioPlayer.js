@@ -160,6 +160,10 @@ var AudioPlayer = React.createClass({
       center: {
         display: 'flex',
         justifyContent: 'center'
+      },
+      right: {
+        display: 'flex',
+        justifyContent: 'flex-end'
       }
     };
     return(
@@ -168,10 +172,10 @@ var AudioPlayer = React.createClass({
         <div className="col-xs-6" style={styles.center}>
           {button}
         </div>
-        <div className="col-xs-6" style={styles.center}>
+        <div className="col-xs-6" style={styles.right}>
         {stopButton}
         </div>
-        <TimeLabel timer={this.state.timeupdated} duration={this.state.duration}/>
+        <TimeLabel timer={this.state.timeupdated} duration={this.state.duration} status={this.state.status}/>
         <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
       </div>
     );

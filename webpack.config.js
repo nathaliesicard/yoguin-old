@@ -16,7 +16,14 @@ module.exports = {
   ],
   module: {
     loaders: [
-      {test: /\.js$/, include: __dirname + '/app', loader: "babel-loader"},
+      {
+          test: /\.js$/,
+          include: __dirname + '/app',
+          loader: "babel-loader",
+          query: {
+            presets: 'es2015',
+          },
+      },
       {test: /\.scss$/, loaders: ["style", "css", "sass"]},
       {test: /\.css$/, loader: "style-loader!css-loader" },
       // { test: /\.(png|jpg|jpeg|gif|ico)$/, loader: 'url-loader?limit=8192' },
@@ -34,5 +41,6 @@ module.exports = {
     filename: "index_bundle.js",
     path:__dirname + '/dist'
   },
-  plugins: [HTMLWebpackPluginConfig]
+  plugins: [HTMLWebpackPluginConfig],
+  devtool: 'source-map',
 };

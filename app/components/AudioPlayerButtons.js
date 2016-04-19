@@ -26,6 +26,31 @@ var styles= {
     cursor: 'pointer',
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
+      background: color('#cccccc').hexString(),
+      boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
+    }
+  },
+  close: {
+    width: '45px',
+    height: '45px',
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'baseline',
+    justifyContent: 'center',
+    lineHeight: '50px',
+    border: '0px',
+    borderRadius: '50%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: '#949494',
+    boxShadow: '0 0 3px gray',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    cursor: 'pointer',
+    transition: 'box-shadow .2s ease-in-out',
+    ':hover': {
+      boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
       background: color('#cccccc').hexString()
     }
   }
@@ -66,8 +91,8 @@ var StopButton = React.createClass({
   mixins: [ScreenTypeMixin],
   render: function () {
     return (
-      <button onClick={this.props.onStopBtnClick} style={styles.button}>
-        <i className="fa fa-stop"></i>
+      <button onClick={this.props.onStopBtnClick} style={styles.close}>
+        <i className="fa fa-times"></i>
       </button>
     );
   }

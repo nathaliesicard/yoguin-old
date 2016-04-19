@@ -12,6 +12,13 @@ module.exports = {
     duration: 10,
     url: "/audio/sound.mp3",
     img: "/img/blue-flowers.jpg"
+  },
+  'Aprendiendo a Meditar 01': {
+    name: 'Aprendiendo a Meditar 01',
+    quip: 'Práctica de meditación',
+    duration: 10,
+    url: "/audio/yoguin-01.mp3",
+    img: "/img/blue-flowers.jpg"
   }
 
 };

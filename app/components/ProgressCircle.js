@@ -3,6 +3,9 @@
  */
 var React = require('react');
 var PropTypes = React.PropTypes;
+var PlayButton = require('../components/AudioPlayerButtons').PlayButton;
+var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
+
 
 var ProgressCircle = React.createClass({
   getDefaultProps: function() {
@@ -50,6 +53,7 @@ var ProgressCircle = React.createClass({
           textAnchor="middle">
           {this.props.timer}
         </text>
+
       </svg>
     );
 
