@@ -19,6 +19,13 @@ module.exports = {
     duration: 10,
     url: "/audio/aprendiendo-01.mp3",
     img: "/img/blue-flowers.jpg"
+  },
+  'Aprendiendo a Meditar 02': {
+    name: 'Aprendiendo a Meditar 02',
+    quip: 'Práctica de meditación',
+    duration: 10,
+    url: "/audio/aprendiendo-02.mp3",
+    img: "/img/blue-flowers.jpg"
   }
 
 };

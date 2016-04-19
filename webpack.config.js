@@ -38,7 +38,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: "index_bundle.js",
+    filename: "index_bundle.[hash].js",
     path:__dirname + '/dist'
   },
   plugins: [HTMLWebpackPluginConfig],
