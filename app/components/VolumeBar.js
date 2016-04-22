@@ -32,7 +32,7 @@ var VolumeBar = React.createClass({
           cursor: 'pointer'
         },
         volumeBar: {
-          width: '100%',
+          width: '200px',
           lineHeight: '50px',
           background: 'transparent',
           textAlign: 'center',
@@ -64,7 +64,7 @@ var VolumeBar = React.createClass({
           cursor: 'pointer'
         },
         volumeBar: {
-          width: '100%',
+          width: '200px',
           lineHeight: '50px',
           background: 'transparent',
           textAlign: 'center',

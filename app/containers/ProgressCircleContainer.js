@@ -12,19 +12,11 @@ var styles= {
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column'
-  },
-  timer: {
-    textAlign: 'center',
-    fontWeight: 600,
-    fontFamily: 'sans-serif',
-    fontSize: '2em',
-    color: '#3479dd',
-    marginTop: '20px'
   }
 };
 
 
-var TimeLabel = React.createClass({
+var ProgressCircleContainer = React.createClass({
   mixins: [ TimeFormatterMixin ],
   componentDidMount: function() {
 
@@ -37,7 +29,7 @@ var TimeLabel = React.createClass({
 
 
     return (
-      <div style={styles.center}>
+      <div>
           <ProgressCircle
             strokeWidth="10"
             radius="100"
@@ -45,14 +37,11 @@ var TimeLabel = React.createClass({
             timer={timer}
             duration={duration}
             status={this.props.status}/>
-          <div style={styles.timer}>
-            {timer}
-          </div>
       </div>
     );
   }
 });
 
-module.exports = TimeLabel;
+module.exports = ProgressCircleContainer;
 
 

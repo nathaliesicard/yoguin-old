@@ -10,7 +10,8 @@ var Modal = require('react-modal');
 var ModalStyles = require('../styles/ModalStyles');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
-var TimeLabel = require('../components/TimeLabel');
+var ProgressCircleContainer = require('../containers/ProgressCircleContainer');
+var Timer = require('../components/Timer');
 var VolumeBar = require('../components/VolumeBar');
 
 
@@ -167,7 +168,39 @@ var AudioPlayer = React.createClass({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        width: '100%'
+        width: '100%',
+        position: 'absolute',
+        top: (window.innerHeight/2) - 50,
+        left: 0,
+        zIndex: 0
+      },
+      progress: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '100%',
+        position: 'absolute',
+        top: (window.innerHeight/2) - 100,
+        left: 0,
+        zIndex: -1
+      },
+      timer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        width: '100%',
+        position: 'absolute',
+        top: '70%',
+        left: 0
+      },
+      volume: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        width: '100%',
+        position: 'absolute',
+        top: '80%',
+        left: 0
       },
       right: {
         display: 'flex',
@@ -192,9 +225,17 @@ var AudioPlayer = React.createClass({
         {text}
         <div style={styles.button}>
             {button}
-          <TimeLabel timer={this.state.timeupdated} duration={this.state.duration} status={this.state.status} />
         </div>
-        <div style={styles.center}>
+        <div style={styles.progress}>
+          <ProgressCircleContainer
+            timer={this.state.timeupdated}
+            duration={this.state.duration}
+            status={this.state.status} />
+          </div>
+          <div style={styles.timer}>
+            <Timer timer={this.state.timeupdated}  status={this.state.status} />
+        </div>
+        <div style={styles.volume}>
          <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
         </div>
       </div>

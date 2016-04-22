@@ -7,8 +7,8 @@ var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
 var styles= {
   button: {
-    width: '70px',
-    height: '70px',
+    width: '100px',
+    height: '100px',
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
@@ -18,7 +18,7 @@ var styles= {
     borderRadius: '50%',
     textAlign: 'center',
     textDecoration: 'none',
-    background: '#949494',
+    background: 'linear-gradient(60deg,#3479dd,#344fdd)',
     boxShadow: '0 0 3px gray',
     fontSize: '20px',
     fontWeight: 'bold',
@@ -26,7 +26,7 @@ var styles= {
     cursor: 'pointer',
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
-      background: color('#cccccc').hexString(),
+      background: color('#0074d9').lighten(0.2).hexString(),
       boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
     }
   },
