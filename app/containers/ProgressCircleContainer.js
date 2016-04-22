@@ -31,8 +31,8 @@ var ProgressCircleContainer = React.createClass({
     return (
       <div>
           <ProgressCircle
-            strokeWidth="10"
-            radius="100"
+            strokeWidth="30"
+            radius="90"
             percentage={percentage}
             timer={timer}
             duration={duration}

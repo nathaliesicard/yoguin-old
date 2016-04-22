@@ -13,9 +13,10 @@ var Link = ReactRouter.Link;
 var ProgressCircleContainer = require('../containers/ProgressCircleContainer');
 var Timer = require('../components/Timer');
 var VolumeBar = require('../components/VolumeBar');
-
+var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
 var AudioPlayer = React.createClass({
+  mixins: [ ScreenTypeMixin ],
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -170,7 +171,7 @@ var AudioPlayer = React.createClass({
         justifyContent: 'center',
         width: '100%',
         position: 'absolute',
-        top: (window.innerHeight/2) - 50,
+        top: (window.innerHeight/2) - 60,
         left: 0,
         zIndex: 0
       },
@@ -180,7 +181,7 @@ var AudioPlayer = React.createClass({
         justifyContent: 'center',
         width: '100%',
         position: 'absolute',
-        top: (window.innerHeight/2) - 100,
+        top: (window.innerHeight/2) - 90,
         left: 0,
         zIndex: -1
       },
@@ -231,9 +232,9 @@ var AudioPlayer = React.createClass({
             timer={this.state.timeupdated}
             duration={this.state.duration}
             status={this.state.status} />
-          </div>
-          <div style={styles.timer}>
-            <Timer timer={this.state.timeupdated}  status={this.state.status} />
+        </div>
+        <div style={styles.timer}>
+          <Timer timer={this.state.timeupdated}  status={this.state.status} />
         </div>
         <div style={styles.volume}>
          <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />

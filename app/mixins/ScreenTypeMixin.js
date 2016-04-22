@@ -19,10 +19,18 @@ function getScreenType() {
 
 var ScreenTypeMixin = {
   getInitialState: function () {
-    return {screenType: getScreenType()};
+    return {
+      screenType: getScreenType(),
+      width: window.innerWidth,
+      height: window.innerHeight
+    };
   },
   handleResize: function (e) {
-    this.setState({screenType: getScreenType()});
+    this.setState({
+      screenType: getScreenType(),
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
   },
 
   componentDidMount: function () {

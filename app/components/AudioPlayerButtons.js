@@ -6,9 +6,9 @@ var Radium = require('radium');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
 var styles= {
-  button: {
-    width: '100px',
-    height: '100px',
+  play: {
+    width: '120px',
+    height: '120px',
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
@@ -27,7 +27,31 @@ var styles= {
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
       background: color('#0074d9').lighten(0.2).hexString(),
+      boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)'
+    }
+  },
+  pause: {
+    width: '120px',
+    height: '120px',
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    lineHeight: '50px',
+    border: '0px',
+    borderRadius: '50%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: 'linear-gradient(60deg, #C3C3C3, #afafaf)',
+    boxShadow: '0 0 3px gray',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    cursor: 'pointer',
+    transition: 'box-shadow .2s ease-in-out',
+    ':hover': {
       boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
+      background: color('#cccccc').hexString()
     }
   },
   close: {
@@ -63,7 +87,7 @@ var PlayButton = React.createClass({
   mixins: [ScreenTypeMixin],
   render: function () {
     return (
-      <button onClick={this.props.onPlayBtnClick} style={styles.button}>
+      <button onClick={this.props.onPlayBtnClick} style={styles.play}>
         <i className="fa fa-play"></i>
       </button>
     );
@@ -77,7 +101,7 @@ var PauseButton = React.createClass({
   mixins: [ScreenTypeMixin],
   render: function () {
     return (
-      <button onClick={this.props.onPauseBtnClick} style={styles.button}>
+      <button onClick={this.props.onPauseBtnClick} style={styles.pause}>
         <i className="fa fa-pause"></i>
       </button>
     );
