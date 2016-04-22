@@ -66,7 +66,7 @@ var styles= {
     borderRadius: '50%',
     textAlign: 'center',
     textDecoration: 'none',
-    background: '#949494',
+    background: 'linear-gradient(60deg,#ff8688,#FF686B)',
     boxShadow: '0 0 3px gray',
     fontSize: '20px',
     fontWeight: 'bold',
@@ -74,8 +74,50 @@ var styles= {
     cursor: 'pointer',
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
+      background: color('#FF686B').lighten(0.2).hexString(),
+      boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)'
+    }
+  },
+  modalClose: {
+    lineHeight: '40px',
+    width: '100px',
+    border: '0px',
+    borderRadius: '5%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: 'linear-gradient(60deg,#ff8688,#FF686B)',
+    boxShadow: '0 0 3px gray',
+    fontSize: '15px',
+    fontWeight: 'bold',
+    color: '#fff',
+    cursor: 'pointer',
+    margin: '10px',
+    transition: 'box-shadow .2s ease-in-out',
+    ':hover': {
+      background: color('#FF686B').darken(0.1).hexString(),
       boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
-      background: color('#cccccc').hexString()
+      textDecoration: 'none'
+    }
+  },
+  modalCancel: {
+    lineHeight: '40px',
+    width: '100px',
+    border: '0px',
+    borderRadius: '5%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: 'linear-gradient(60deg,#acacac,#C7C7C7)',
+    boxShadow: '0 0 3px gray',
+    fontSize: '15px',
+    fontWeight: 'bold',
+    color: '#fff',
+    cursor: 'pointer',
+    margin: '10px',
+    transition: 'box-shadow .2s ease-in-out',
+    ':hover': {
+      background: color('#757575').darken(0.1).hexString(),
+      boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
+      textDecoration: 'none'
     }
   }
 };
@@ -122,10 +164,35 @@ var StopButton = React.createClass({
   }
 });
 
+var ModalCloseBtn = React.createClass({
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button style={styles.modalClose}>
+        <i className="fa fa-times-circle"></i> Terminar
+      </button>
+    );
+  }
+});
 
+var ModalCancelBtn = React.createClass({
+  propTypes: {
+    closeModal: React.PropTypes.func.isRequired
+  },
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button onClick={this.props.closeModal} style={styles.modalCancel}>
+        <i className="fa fa-arrow-circle-left"></i> Cancelar
+      </button>
+    );
+  }
+});
 
 module.exports = {
   PlayButton: Radium(PlayButton),
   PauseButton: Radium(PauseButton),
-  StopButton: Radium(StopButton)
-}
+  StopButton: Radium(StopButton),
+  ModalCloseBtn: Radium(ModalCloseBtn),
+  ModalCancelBtn: Radium(ModalCancelBtn)
+};

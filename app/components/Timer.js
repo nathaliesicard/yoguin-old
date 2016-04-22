@@ -9,7 +9,7 @@ var styles= {
   timer: {
     textAlign: 'center',
     fontWeight: 600,
-    fontFamily: 'sans-serif',
+    fontFamily: 'Lato, sans-serif',
     fontSize: '2em',
     color: '#3479dd',
     marginTop: '20px',

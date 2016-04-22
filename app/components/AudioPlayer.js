@@ -6,6 +6,8 @@ var PropTypes = React.PropTypes;
 var PlayButton = require('../components/AudioPlayerButtons').PlayButton;
 var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
 var StopButton = require('../components/AudioPlayerButtons').StopButton;
+var ModalCloseBtn = require('../components/AudioPlayerButtons').ModalCloseBtn;
+var ModalCancelBtn = require('../components/AudioPlayerButtons').ModalCancelBtn;
 var Modal = require('react-modal');
 var ModalStyles = require('../styles/ModalStyles');
 var ReactRouter = require('react-router');
@@ -126,6 +128,7 @@ var AudioPlayer = React.createClass({
     var button;
     var text;
 
+
     var stopButton = (<div>
       <StopButton onStopBtnClick={this.onStopBtnClick}/>
       <Modal
@@ -134,9 +137,9 @@ var AudioPlayer = React.createClass({
         style={ModalStyles} >
         <h3>Terminar la sesión</h3>
         <div>¿Estás seguro de que quieres terminar la meditación ahora?</div>
-        <button onClick={this.closeModal}>Cancelar</button>
+        <ModalCancelBtn closeModal={this.closeModal} />
         <Link to='/'>
-          <button>Terminar</button>
+          <ModalCloseBtn />
         </Link>
       </Modal>
       </div>);
@@ -151,7 +154,7 @@ var AudioPlayer = React.createClass({
         button = <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
       }
       else if (this.state.status == 'ENDED') {
-        text = <p>Thanks for playing</p>;
+        text = <p>Gracias por utilizar Yoguin</p>;
         stopButton = '';
       }
       else {
@@ -164,6 +167,27 @@ var AudioPlayer = React.createClass({
         flexWrap: 'wrap',
         justifyContent: 'center',
         width: '100%'
+      },
+      header: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        position: 'absolute',
+        textAlign: 'center',
+        width: '100%',
+        top: '10%',
+        left: 0,
+        fontWeight: '700'
+      },
+      h3: {
+        color: '#3479dd',
+        fontFamily: 'Montserrat, sans-serif',
+        textShadow: '1px 1px 2px rgba(255, 255, 255, 0.20)',
+        textTransform: 'uppercase'
+      },
+      h4: {
+        color: '#333',
+        textShadow: '1px 1px 2px rgba(255, 255, 255, 0.20)'
       },
       button: {
         display: 'flex',
@@ -223,7 +247,11 @@ var AudioPlayer = React.createClass({
         <div style={styles.right}>
           {stopButton}
         </div>
-        {text}
+        <div style={styles.header}>
+          <h3 style={styles.h3}>{this.props.meditation.name}</h3>
+          <h4 style={styles.h4}>{this.props.meditation.quip}</h4>
+          {text}
+        </div>
         <div style={styles.button}>
             {button}
         </div>
@@ -236,12 +264,13 @@ var AudioPlayer = React.createClass({
         <div style={styles.timer}>
           <Timer timer={this.state.timeupdated}  status={this.state.status} />
         </div>
-        <div style={styles.volume}>
-         <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
-        </div>
       </div>
     );
   }
 });
 
 module.exports = AudioPlayer;
+
+/*<div style={styles.volume}>
+ <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
+ </div>*/
