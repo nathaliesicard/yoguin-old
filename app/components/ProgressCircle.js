@@ -45,14 +45,6 @@ var ProgressCircle = React.createClass({
                         strokeDasharray: dashArray,
                         strokeDashoffset: dashOffset
                     }} />
-        <text
-          className="CircularProgress-Text"
-          x={this.props.radius}
-          y={this.props.radius}
-          dy=".4em"
-          textAnchor="middle">
-          {this.props.timer}
-        </text>
 
       </svg>
     );

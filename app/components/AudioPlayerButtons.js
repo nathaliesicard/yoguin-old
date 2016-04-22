@@ -7,8 +7,8 @@ var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
 var styles= {
   button: {
-    width: '60px',
-    height: '60px',
+    width: '70px',
+    height: '70px',
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
@@ -31,8 +31,8 @@ var styles= {
     }
   },
   close: {
-    width: '45px',
-    height: '45px',
+    width: '40px',
+    height: '40px',
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'baseline',

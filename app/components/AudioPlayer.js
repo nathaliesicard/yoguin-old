@@ -159,24 +159,44 @@ var AudioPlayer = React.createClass({
     var styles= {
       center: {
         display: 'flex',
-        justifyContent: 'center'
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        width: '100%'
+      },
+      button: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: '100%'
       },
       right: {
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        alignItems: 'flex-start',
+        margin: '25px',
+        width: '100%'
+      },
+      box: {
+        display: 'flex',
+        height: '100%',
+        width: '100%',
+        flexWrap: 'wrap'
       }
     };
     return(
-      <div className="col-xs-10">
+
+      <div style={styles.box}>
+        <div style={styles.right}>
+          {stopButton}
+        </div>
         {text}
-        <div className="col-xs-6" style={styles.center}>
-          {button}
+        <div style={styles.button}>
+            {button}
+          <TimeLabel timer={this.state.timeupdated} duration={this.state.duration} status={this.state.status} />
         </div>
-        <div className="col-xs-6" style={styles.right}>
-        {stopButton}
+        <div style={styles.center}>
+         <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
         </div>
-        <TimeLabel timer={this.state.timeupdated} duration={this.state.duration} status={this.state.status}/>
-        <VolumeBar volume={this.state.volume} adjustVolumeTo={this.adjustVolumeTo} />
       </div>
     );
   }
