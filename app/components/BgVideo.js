@@ -5,11 +5,10 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var color = require('color');
 var Radium = require('radium');
-var bgVideoSrc = require('../assets/videos/video_2.mp4');
+var bgVideoSrc = require('../assets/videos/video.mp4');
 var bgVideoSrcTwo = require('../assets/videos/video_2.webm');
-
 var bgImgSrc = require('../assets/images/poster.jpg');
-
+var VolumeBtn = require('../components/VolumeBtn');
 
   var styles = {
     video: {
@@ -26,6 +25,12 @@ var bgImgSrc = require('../assets/images/poster.jpg');
 
 
 var BgVideo = React.createClass({
+
+  propTypes: {
+    volume: React.PropTypes.number.isRequired
+  },
+
+
   getInitialState: function (){
     return {
       //duration: 0,
@@ -65,8 +70,11 @@ var BgVideo = React.createClass({
   //
   //},
 
+
   errored: function() {
-    this.setState({ errored: true });
+    this.setState({
+      errored: true
+    });
   },
 
   render: function() {
@@ -77,11 +85,30 @@ var BgVideo = React.createClass({
     }
 
     return (
-      <video loop autoPlay="true" poster={bgImgSrc} style={styles.video} onError={this.errored}>
+      <div>
+      <video loop autoPlay="true" ref="theVideo" poster={bgImgSrc} style={styles.video} onError={this.errored}>
         <source src={bgVideoSrc} type="video/mp4"/>
         <source src={bgVideoSrcTwo} type="video/webm"/>
       </video>
+      </div>
     );
+  },
+
+  componentDidMount: function() {
+    this.adjustBgVolumeTo(this.props.volume);
+    console.log('Volume is: ',this.props.volume);
+  },
+
+  componentWillUpdate: function(nextProps, nextState) {
+    if (this.props.volume !== nextProps.volume) {
+       this.adjustBgVolumeTo(nextProps.volume);
+     }
+  },
+
+  adjustBgVolumeTo: function(percent) {
+    if (this.refs.theVideo) {
+      this.refs.theVideo.volume = percent;
+    }
   }
 });
 

@@ -16,43 +16,25 @@ var Home = React.createClass({
   mixins: [ ScreenTypeMixin ],
   render: function() {
 
-    if (this.state.screenType =='DESKTOP') {
       var styles = {
         homepageBrand: {
           background: 'transparent',
           fontFamily: 'Cookie, cursive',
-          fontSize: '6em',
+          fontSize: this.state.screenType =='DESKTOP' ? '6em' : '8em',
           fontWeight: 900,
           color: '#fff',
-          marginBottom:'0.25em'
+          marginBottom:'0.25em',
+          zIndex: -4
         },
         homepageDesc: {
           fontFamily: 'Raleway, sans-serif',
-          fontWeight: 400,
+          fontWeight: this.state.screenType =='DESKTOP' ? 400 : 500,
           color: '#fff',
-          fontSize: '1.5em'
+          fontSize: this.state.screenType =='DESKTOP' ? '1.5em' : '3.5em',
+          zIndex: -4
         }
       };
-    } else {
-      var styles = {
-        homepageBrand: {
-          background: 'transparent',
-          fontFamily: 'Cookie, cursive',
-          fontSize: '8em',
-          fontWeight: 900,
-          color: '#fff',
-          marginBottom:'0.25em'
-        },
-        homepageDesc: {
-          fontFamily: 'Raleway, sans-serif',
-          fontWeight: 500,
-          color: '#fff',
-          fontSize: '3.5em'
-        }
-      }
-
-    }
-
+    
     return (
       <MainContainer>
         <h1 style={styles.homepageBrand}>Yoguin</h1>

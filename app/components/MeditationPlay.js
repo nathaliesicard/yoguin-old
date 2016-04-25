@@ -24,7 +24,7 @@ var styles = {
     fontFamily: 'Raleway, sans-serif',
     color: '#333',
     transition: 'box-shadow .2s ease-in-out',
-    zIndex: -2
+    zIndex: -3
   },
   header: {
     fontWeight: '900',
