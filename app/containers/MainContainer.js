@@ -6,7 +6,8 @@ var React = require('react');
 
 var styles = {
   transparentBg: {
-    background: 'transparent'
+    background: 'transparent',
+    zIndex: -4
   }
 }
 
