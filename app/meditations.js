@@ -19,6 +19,20 @@ module.exports = {
     duration: 10,
     url: "/audio/aprendiendo-03.mp3",
     img: "/img/meditation-mountains.jpg"
+  },
+  'Aprendiendo a Meditar 04': {
+    name: 'Aprendiendo a Meditar 04',
+    quip: 'Salir de Piloto Automático',
+    duration: 11,
+    url: "/audio/aprendiendo-04.mp3",
+    img: "/img/meditation-mountains.jpg"
+  },
+  'Aprendiendo a Meditar 05': {
+    name: 'Aprendiendo a Meditar 05',
+    quip: 'Haz una pausa',
+    duration: 11,
+    url: "/audio/aprendiendo-05.mp3",
+    img: "/img/meditation-mountains.jpg"
   }
 
 };

@@ -39,7 +39,7 @@ var Main = React.createClass({
     if (this.state.volume == 0 ) {
       this.setState({ volume: 0.5 });
     } else if (this.state.volume == 0.5 ) {
-      this.setState({ volume: 0.9 });
+      this.setState({ volume: 1 });
     } else {
       this.setState({ volume: 0 });
     }
