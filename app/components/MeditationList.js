@@ -22,8 +22,7 @@ var styles = {
     fontWeight: '500',
     fontFamily: 'Raleway, sans-serif',
     color: '#333',
-    transition: 'box-shadow .2s ease-in-out',
-    overflow: 'scroll'
+    transition: 'box-shadow .2s ease-in-out'
   },
   header: {
     fontWeight: '900',
