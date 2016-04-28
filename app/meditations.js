@@ -29,9 +29,16 @@ module.exports = {
   },
   'Aprendiendo a Meditar 05': {
     name: 'Aprendiendo a Meditar 05',
-    quip: 'Haz una pausa',
+    quip: 'Haz una Pausa',
     duration: 11,
     url: "/audio/aprendiendo-05.mp3",
+    img: "/img/meditation-mountains.jpg"
+  },
+  'Aprendiendo a Meditar 06': {
+    name: 'Aprendiendo a Meditar 06',
+    quip: 'El Valor de la Paciencia',
+    duration: 10,
+    url: "/audio/aprendiendo-06.mp3",
     img: "/img/meditation-mountains.jpg"
   }
 
