@@ -40,6 +40,13 @@ module.exports = {
     duration: 10,
     url: "/audio/aprendiendo-06.mp3",
     img: "/img/meditation-mountains.jpg"
-  }
+  },
+  'Aprendiendo a Meditar 07': {
+  name: 'Aprendiendo a Meditar 07',
+  quip: 'La Consciencia',
+  duration: 11,
+  url: "/audio/aprendiendo-07.mp3",
+  img: "/img/meditation-mountains.jpg"
+}
 
 };
