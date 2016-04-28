@@ -12,7 +12,7 @@ var styles = {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
-    height: '100vh',
+    minHeight: '100vh',
     justifyContent: 'center',
     border: '0px',
     textAlign: 'center',
@@ -22,7 +22,8 @@ var styles = {
     fontWeight: '500',
     fontFamily: 'Raleway, sans-serif',
     color: '#333',
-    transition: 'box-shadow .2s ease-in-out'
+    transition: 'box-shadow .2s ease-in-out',
+    overflow: 'scroll'
   },
   header: {
     fontWeight: '900',
