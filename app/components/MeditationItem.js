@@ -31,27 +31,29 @@ var MeditationItem = React.createClass({
         bgLeft: {
           display: 'flex',
           justifyContent: 'center',
-          flexDirection: 'column',
-          fontSize: this.state.screen == 'desktop' ? '14px' : '2.2em'
+          flexDirection: 'column'
         },
         bgRight: {
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'center',
-          flexDirection: 'column',
-          fontFamily: 'sans-serif',
-          fontSize: this.state.screen == 'desktop' ? '12px' : '1em'
+          flexDirection: 'column'
         },
         duration: {
-          fontSize: this.state.screen == 'desktop' ? '1.2em' : '2em'
+          fontSize: this.state.screen == 'desktop' ? '1em' : '15px',
+          fontFamily: 'Lato-Regular, sans-serif'
         },
         title: {
           display: 'flex',
           alignSelf: 'center',
-          fontFamily: 'BrandonGrotesque-Bold',
           textTransform: 'uppercase',
-          fontSize: this.state.screen == 'desktop' ? '20px' : '1.5em'
+          fontSize: this.state.screen == 'desktop' ? '1em' : '1.5em',
+          fontFamily: 'BrandonGrotesque-Bold'
+        },
+        quip: {
+          fontSize: this.state.screen == 'desktop' ? '1em' : '16px',
+          fontFamily: 'BrandonGrotesque-Medium'
         },
         button: {
           display: 'flex',
@@ -59,8 +61,8 @@ var MeditationItem = React.createClass({
           alignSelf: 'center',
           justifyContent: 'center',
           paddingBottom: '2px',
-          width: this.state.screen == 'desktop' ? '4.5em' : '5em',
-          height: this.state.screen == 'desktop' ? '4.5em' : '5em',
+          width: this.state.screen == 'desktop' ? '50px' : '60px',
+          height: this.state.screen == 'desktop' ? '50px' : '60px',
           lineHeight: '5.5em',
           border: '0px',
           borderRadius: '50%',
@@ -105,7 +107,7 @@ var MeditationItem = React.createClass({
         <div className="row" key="bg" style={styles.backgroundStyle}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
             <h3 key="title" style={styles.title}>{this.props.name}</h3>
-            <p>{this.props.quip}</p>
+            <p style={styles.quip}>{this.props.quip}</p>
           </div>
           <div className="col-xs-3" key="bgRight" style={styles.bgRight}>
             <button key="button" style={styles.button}>
