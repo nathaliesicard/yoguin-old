@@ -41,18 +41,18 @@ var MeditationItem = React.createClass({
           flexDirection: 'column'
         },
         duration: {
-          fontSize: this.state.screen == 'desktop' ? '1em' : '15px',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1.1em' : '15px',
           fontFamily: 'Lato-Regular, sans-serif'
         },
         title: {
           display: 'flex',
           alignSelf: 'center',
           textTransform: 'uppercase',
-          fontSize: this.state.screen == 'desktop' ? '1em' : '1.5em',
+          fontSize: this.state.screenType == 'DESKTOP' ? '2em' : '1.5em',
           fontFamily: 'BrandonGrotesque-Bold'
         },
         quip: {
-          fontSize: this.state.screen == 'desktop' ? '1em' : '16px',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1.2em' : '16px',
           fontFamily: 'BrandonGrotesque-Medium'
         },
         button: {
@@ -61,8 +61,8 @@ var MeditationItem = React.createClass({
           alignSelf: 'center',
           justifyContent: 'center',
           paddingBottom: '2px',
-          width: this.state.screen == 'desktop' ? '50px' : '60px',
-          height: this.state.screen == 'desktop' ? '50px' : '60px',
+          width: this.state.screenType == 'DESKTOP' ? '4.5em' : '60px',
+          height: this.state.screenType == 'DESKTOP' ? '4.5em' : '60px',
           lineHeight: '5.5em',
           border: '0px',
           borderRadius: '50%',
@@ -70,7 +70,7 @@ var MeditationItem = React.createClass({
           textDecoration: 'none',
           background: 'linear-gradient(50deg,#ff5a5f,#ff6a6f)',
           boxShadow: '0 0 3px gray',
-          fontSize: this.state.screen == 'desktop' ? '1em' : '1.5em',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '1.5em',
           fontWeight: 'bold',
           color: '#fff',
           marginBottom: '5px',

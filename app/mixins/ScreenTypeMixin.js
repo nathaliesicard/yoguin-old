@@ -1,6 +1,4 @@
-/**
- * Created by nathaliesicard on 4/3/16.
- */
+
 
 window.mobilecheck = function() {
   var check = false;

@@ -9,7 +9,7 @@ var MeditateButton = React.createClass({
 
     var baseStyle = {
       display: 'block',
-      width:  this.state.screen == 'desktop' ? '4em' : '6em',
+      width:  this.state.screenType == 'DESKTOP' ? '4em' : '6em',
       height: '4em',
       lineHeight: '50px',
       border: '0px',
