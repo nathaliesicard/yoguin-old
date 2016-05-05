@@ -3,7 +3,7 @@
  */
 
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
@@ -38,7 +38,8 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file-loader?name=fonts/[path][name]-[hash].[ext]&context=./app/assets/fonts'
-      }
+      },
+      { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' }
     ]
   },
   output: {
