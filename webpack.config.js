@@ -21,8 +21,8 @@ module.exports = {
           include: __dirname + '/app',
           loader: "babel-loader",
           query: {
-            presets: 'es2015',
-          },
+            presets: 'es2015'
+          }
       },
       {test: /\.scss$/, loaders: ["style", "css", "sass"]},
       {test: /\.css$/, loader: "style-loader!css-loader" },
@@ -34,7 +34,11 @@ module.exports = {
       },
       {test: /\.(webm|mp4)$/, loader: 'file'},
       {test: /\.(wav|mp3)$/,
-        loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'}
+        loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'},
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'file-loader?name=fonts/[path][name]-[hash].[ext]&context=./app/assets/fonts'
+      }
     ]
   },
   output: {
@@ -42,5 +46,5 @@ module.exports = {
     path:__dirname + '/dist'
   },
   plugins: [HTMLWebpackPluginConfig],
-  devtool: 'source-map',
+  devtool: 'source-map'
 };

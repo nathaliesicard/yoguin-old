@@ -16,12 +16,14 @@ var ProgressCircle = React.createClass({
     };
   },
   render: function () {
-    const radius = this.props.radius - this.props.strokeWidth / 2;
-    const width = this.props.radius * 2;
-    const height = this.props.radius * 2;
+
+
+    const radius = parseFloat(this.props.radius) - parseFloat(this.props.strokeWidth) / 2;
+    const width = parseFloat(this.props.radius) * 2;
+    const height = parseFloat(this.props.radius) * 2;
     const viewBox = `0 0 ${width} ${height}`;
     const dashArray = radius * Math.PI * 2;
-    const dashOffset = dashArray - dashArray * this.props.percentage / 100;
+    const dashOffset = dashArray - dashArray * parseFloat(this.props.percentage) / 100;
 
     return (
       <svg

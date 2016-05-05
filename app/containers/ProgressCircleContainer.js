@@ -25,6 +25,9 @@ var ProgressCircleContainer = React.createClass({
     var timer = this.secondsToTime(this.props.timer);
     var duration = this.secondsToTime(this.props.duration);
     var percentage = Math.round((this.props.timer / this.props.duration) * 100);
+    if (Number.isNaN(percentage)) {
+      percentage = 0;
+    }
     console.log('Timer: ',timer+'Duration: ',duration + 'Percentage ',percentage);
 
 

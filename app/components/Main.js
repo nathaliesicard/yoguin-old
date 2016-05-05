@@ -4,8 +4,6 @@
 var React = require('react');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 const ReactDriveIn = require("react-drive-in");
-var bgImgSrc = require('../assets/images/bg.jpg');
-var bgVideoSrc = require('../assets/videos/video.mp4');
 var BgVideo = require('./BgVideo');
 var VolumeBtn = require('../components/VolumeBtn');
 
