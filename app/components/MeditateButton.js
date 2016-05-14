@@ -36,9 +36,9 @@ var MeditateButton = React.createClass({
       };
     
     if (this.state.screenType != 'DESKTOP') {
-      baseStyle.width = '6em';
-      baseStyle.height = '6em';
-      baseStyle.fontSize = '2em';
+      baseStyle.width = '4em';
+      baseStyle.height = '4em';
+      baseStyle.fontSize = '1em';
     }
 
     return (

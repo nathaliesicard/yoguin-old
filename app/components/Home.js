@@ -19,18 +19,18 @@ var Home = React.createClass({
       var styles = {
         homepageBrand: {
           background: 'transparent',
-          fontFamily: 'Cookie, cursive',
-          fontSize: this.state.screenType =='DESKTOP' ? '6em' : '8em',
+          fontFamily: 'Cookie-Regular, cursive',
+          fontSize: this.state.screenType =='DESKTOP' ? '7em' : '6em',
           fontWeight: 900,
           color: '#fff',
           marginBottom:'0.25em',
           zIndex: -4
         },
         homepageDesc: {
-          fontFamily: 'Raleway, sans-serif',
+          fontFamily: 'Raleway-SemiBold, sans-serif',
           fontWeight: this.state.screenType =='DESKTOP' ? 400 : 500,
           color: '#fff',
-          fontSize: this.state.screenType =='DESKTOP' ? '1.5em' : '3.5em',
+          fontSize: this.state.screenType =='DESKTOP' ? '2em' : '1.5em',
           zIndex: -4
         }
       };

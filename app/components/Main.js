@@ -59,9 +59,6 @@ var Main = React.createClass({
       <div>
         <BgVideo volume={this.state.volume} />
         {this.props.children}
-          <VolumeBtn onVolumeBtnClick={this.onVolumeClick}>
-            {icon}
-          </VolumeBtn>
       </div>
     );
   }
@@ -69,4 +66,6 @@ var Main = React.createClass({
 
 module.exports = Main;
 
-
+// <VolumeBtn onVolumeBtnClick={this.onVolumeClick}>
+//{icon}
+//</VolumeBtn>

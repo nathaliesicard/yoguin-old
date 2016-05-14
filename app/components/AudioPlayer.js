@@ -179,15 +179,18 @@ var AudioPlayer = React.createClass({
         left: 0,
         fontWeight: '700'
       },
-      h3: {
+      h2: {
         color: '#3479dd',
-        fontFamily: 'Montserrat, sans-serif',
+        fontFamily: 'BrandonGrotesque-Bold, sans-serif',
         textShadow: '1px 1px 2px rgba(255, 255, 255, 0.20)',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontSize: this.state.screenType == 'DESKTOP' ? '30px' : '25px',
       },
-      h4: {
+      h3: {
         color: '#333',
-        textShadow: '1px 1px 2px rgba(255, 255, 255, 0.20)'
+        textShadow: '1px 1px 2px rgba(255, 255, 255, 0.20)',
+        fontSize: this.state.screenType == 'DESKTOP' ? '24px' : '18px',
+        marginTop: this.state.screenType == 'DESKTOP' ? '20px' : '5px'
       },
       button: {
         display: 'flex',
@@ -248,8 +251,8 @@ var AudioPlayer = React.createClass({
           {stopButton}
         </div>
         <div style={styles.header}>
-          <h3 style={styles.h3}>{this.props.meditation.name}</h3>
-          <h4 style={styles.h4}>{this.props.meditation.quip}</h4>
+          <h2 style={styles.h2}>{this.props.meditation.name}</h2>
+          <h3 style={styles.h3}>{this.props.meditation.quip}</h3>
           {text}
         </div>
         <div style={styles.button}>

@@ -5,9 +5,9 @@ var React = require('react');
 var PropTypes = React.PropTypes;
 var color = require('color');
 var Radium = require('radium');
-var bgVideoSrc = require('../assets/videos/Infinity.mp4');
-var bgVideoSrcTwo = require('../assets/videos/Infinity.webm');
-var bgImgSrc = require('../assets/images/Infinity.jpg');
+var bgVideoSrc = require('../assets/videos/Beach.mp4');
+var bgVideoSrcTwo = require('../assets/videos/Beach.webm');
+var bgImgSrc = require('../assets/images/poster.jpg');
 var VolumeBtn = require('../components/VolumeBtn');
 
   var styles = {

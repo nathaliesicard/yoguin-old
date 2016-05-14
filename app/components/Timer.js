@@ -4,30 +4,32 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var TimeFormatterMixin = require('./../mixins/TimeFormatterMixin');
+var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
-var styles= {
-  timer: {
-    textAlign: 'center',
-    fontWeight: 600,
-    fontFamily: 'Lato, sans-serif',
-    fontSize: '2em',
-    color: '#3479dd',
-    marginTop: '20px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column'
-  }
-};
 
 
 var Timer = React.createClass({
-  mixins: [ TimeFormatterMixin ],
+  mixins: [ TimeFormatterMixin, ScreenTypeMixin ],
   componentDidMount: function() {
 
   },
   render: function () {
     var timer = this.secondsToTime(this.props.timer);
+
+    var styles= {
+      timer: {
+        textAlign: 'center',
+        fontWeight: 600,
+        fontFamily: 'Lato, sans-serif',
+        fontSize: this.state.screenType == 'DESKTOP' ? '2em' : '1.5em',
+        color: '#3479dd',
+        marginTop: '20px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column'
+      }
+    };
 
     return (
        <div style={styles.timer}>          

@@ -20,7 +20,7 @@ var styles = {
     background: 'rgb(255, 54, 54)',
     background: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '500',
-    fontFamily: 'Raleway, sans-serif',
+    fontFamily: 'Raleway-SemiBold, sans-serif',
     color: '#333',
     transition: 'box-shadow .2s ease-in-out'
   },
@@ -33,7 +33,7 @@ var styles = {
 function MeditationList(props) {
   return (
     <div className = "col-xs-10 col-xs-offset-1 text-center" style={styles.base}>
-      <h1 style={styles.header}>{props.header}</h1>
+      <h2 style={styles.header}>{props.header}</h2>
       {props.children}
     </div>
   )

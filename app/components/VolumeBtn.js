@@ -16,7 +16,7 @@ var styles = {
     justifyContent: 'center',
     position: 'absolute',
     top: '5%',
-    left: '93%',
+    left: '85%',
     lineHeight: '50px',
     border: '0px',
     borderRadius: '50%',
