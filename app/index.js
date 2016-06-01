@@ -14,7 +14,7 @@ require("./assets/fonts/google-fonts/Raleway/raleway-bold.scss");
 require("./assets/fonts/google-fonts/Raleway/raleway-semibold.scss");
 require("./assets/fonts/google-fonts/Brandon-Grotesque/BrandonGrotesque-Bold.scss");
 require("./assets/fonts/google-fonts/Brandon-Grotesque/BrandonGrotesque-Medium.scss");
-require("./assets/fonts/font-awesome/css/font-awesome.css");
+require("font-awesome-webpack");
 global.jQuery = require('jquery');
 require('bootstrap-loader');
 

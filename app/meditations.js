@@ -3,7 +3,7 @@ module.exports = {
     name: 'Aprendiendo a Meditar 01',
     quip: 'Enfoque en la Respiración',
     duration: 10,
-    url: "https://madonna-e7ed0.firebaseapp.com/audios/like-a-virgin.mp3",
+    url: "https://www.yoguin.com/audio/aprendiendo-01.mp3",
     img: "img/meditation-mountains.jpg"
   },
   'Aprendiendo a Meditar 02': {
