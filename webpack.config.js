@@ -8,7 +8,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/app/index.html',
   filename: 'index.html',
   inject: 'body',
-  favicon: './app/assets/favicon.ico'
+  favicon: './app/assets/favicon/favicon.ico'
 });
 module.exports = {
   entry: [
@@ -37,7 +37,7 @@ module.exports = {
         loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'},
       {
         test: /\.(eot|svg|ttf|woff|woff2)(\?.*)?$/,
-        loader: 'file-loader?name=fonts/[path][name]-[hash].[ext]&context=./app/assets/fonts'
+        loader: 'file-loader?name=fonts/[path][name]-[hash:4].[ext]&context=./app/assets/fonts'
       },
       { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' }
     ]

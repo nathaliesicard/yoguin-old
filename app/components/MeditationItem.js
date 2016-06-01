@@ -6,6 +6,7 @@ var ReactRouter = require('react-router');
 var PropTypes = React.PropTypes;
 var Link = ReactRouter.Link;
 var MeditationItemContainer = require('../containers/MeditationItemContainer');
+var PlayOrDownloadBtn = require('./PlayOrDownloadBtn');
 var color = require('color');
 var Radium = require('radium');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
@@ -107,16 +108,14 @@ var MeditationItem = React.createClass({
 
 
     return (
-      <div style={styles.base} onClick={this.props.handleClickForPlay}>
+      <div style={styles.base}>
         <div className="row" key="bg" style={styles.backgroundStyle}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
             <h3 key="title" style={styles.title}>{this.props.name}</h3>
             <p style={styles.quip}>{this.props.quip}</p>
           </div>
           <div className="col-xs-3" key="bgRight" style={styles.bgRight}>
-            <button key="button" style={styles.button}>
-              <i className="fa fa-play"></i>
-            </button>
+            <PlayOrDownloadBtn url={this.props.url} handleClickForPlay={this.props.handleClickForPlay} />
             <span style={styles.duration}>{this.props.duration} min</span>
           </div>
         </div>

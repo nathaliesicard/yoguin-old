@@ -3,7 +3,7 @@
  */
 var React = require('react');
 var PropTypes = React.PropTypes;
-var PlayButton = require('../components/AudioPlayerButtons').PlayButton;
+var PlayButton = require('./AudioPlayerButtons').PlayButton;
 var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
 var StopButton = require('../components/AudioPlayerButtons').StopButton;
 var ModalCloseBtn = require('../components/AudioPlayerButtons').ModalCloseBtn;
@@ -15,7 +15,8 @@ var Link = ReactRouter.Link;
 var ProgressCircleContainer = require('../containers/ProgressCircleContainer');
 var Timer = require('../components/Timer');
 var VolumeBar = require('../components/VolumeBar');
-var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
+var ScreenTypeMixin = require('../mixins/ScreenTypeMixin');
+var getFilePath = require('../getFilePath');
 
 var AudioPlayer = React.createClass({
   mixins: [ ScreenTypeMixin ],
@@ -24,7 +25,7 @@ var AudioPlayer = React.createClass({
   },
   getInitialState: function (){
     return {
-      status: 'NOT_STARTED', // 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
+      status: 'DOWNLOADING', // 'DOWNLOADING', 'ERROR', 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
       modalIsOpen: false,
       timeupdated: 0,
       duration: 0,
@@ -33,18 +34,26 @@ var AudioPlayer = React.createClass({
   },
 
   componentWillMount: function() {
-    if (this.props.meditation) {
-      this.setState({
-        name: this.props.meditation.name,
-        url: this.props.meditation.url
-      });
-    }
-    else {
-      throw "No data :'(";
-    }
+    var self = this;
+
+    getFilePath(this.props.meditation.url, function(err, path) {
+      if (err) {
+        console.error('Could not get meditation path ', err);
+        self.setState({ status: 'ERROR' });
+        return;
+      }
+      self.setState({ status: 'NOT_STARTED' });
+      
+      self.path = path;
+      console.log('Got a path of ', path);
+      self.meditation.src = path;
+    });
+
+
+
   },
   componentDidMount: function () {
-    this.meditation = new Audio(this.state.url);
+    this.meditation = new Audio();
     var duration = this.meditation.duration;
     var self = this;
     this.meditation.addEventListener('ended', function(){
@@ -144,7 +153,13 @@ var AudioPlayer = React.createClass({
       </Modal>
       </div>);
 
-    if (this.state.status == 'NOT_STARTED') {
+      if (this.state.status == 'DOWNLOADING') {
+        button = <h1>Downloading..</h1>;
+      }
+      else if (this.state.status == 'ERROR') {
+        button = <h1>Error..</h1>;
+      }
+      else if (this.state.status == 'NOT_STARTED') {
       button = <PlayButton onPlayBtnClick={this.onPlayBtnClick} />
       }
       else if (this.state.status == 'IS_PLAYING') {
@@ -158,7 +173,7 @@ var AudioPlayer = React.createClass({
         stopButton = '';
       }
       else {
-        throw new Error('weird status');
+        throw new Error('weird status ' + this.state.status);
       }
 
     var styles= {
