@@ -1,4 +1,3 @@
-
 module.exports = function(url, callback) {
   if (typeof FileTransfer == 'undefined') {
     callback(new Error('Device was not ready...'));
@@ -27,3 +26,4 @@ module.exports = function(url, callback) {
   );
 
 };
+
