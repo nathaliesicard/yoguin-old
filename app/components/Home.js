@@ -31,7 +31,7 @@ var Home = React.createClass({
           justifyContent: 'center',
           textAlign: 'center',
           alignItems: 'center',
-          marginTop: this.state.screenType =='DESKTOP' ? '15px' : '10px',
+          marginTop: this.state.screenType =='DESKTOP' ? '25px' : '20px',
         },
         logo: {
          width: '100px',

@@ -16,7 +16,7 @@ var HomeButtonsContainer = React.createClass({
         alignItems: 'center',
         justifyContent: 'flex-end',
         flexDirection: 'column',
-        height: this.state.screenType =='DESKTOP' ? '70vh' : '65vh',
+        height: this.state.screenType =='DESKTOP' ? '70vh' : '65vh'
       },
       column: {
         display: 'flex',
@@ -24,7 +24,7 @@ var HomeButtonsContainer = React.createClass({
         justifyContent: 'center',
         flexDirection: this.state.screenType =='DESKTOP' ? 'row' : 'column',
         width: '100%',
-        flexWrap: this.state.screenType =='DESKTOP' ? 'wrap' : '',
+        flexWrap: this.state.screenType =='DESKTOP' ? 'wrap' : ''
       },
       row: {
         marginTop: this.state.screenType =='DESKTOP' ? '40px' : '10px',
@@ -45,7 +45,8 @@ var HomeButtonsContainer = React.createClass({
         flexBasis: this.state.screenType =='DESKTOP' ? '0' : '',
         flexGrow: this.state.screenType =='DESKTOP' ? '1' : '',
         alignItems: 'center',
-        marginBottom: this.state.screenType =='DESKTOP' ? '0px' : '10px',
+        marginTop: this.state.screenType =='DESKTOP' ? '40px' : '0px',
+        marginBottom: this.state.screenType =='DESKTOP' ? '0px' : '10px'
       },
       flexItem: {
         display: 'flex',
@@ -62,6 +63,7 @@ var HomeButtonsContainer = React.createClass({
           <div style={styles.flexItem}>
           {this.props.children}
           </div>
+            <SocialIcons />
         </div>
       </div>
     )
