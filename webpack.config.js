@@ -34,7 +34,8 @@ module.exports = {
       },
       {test: /\.(webm|mp4)$/, loader: 'file'},
       {test: /\.(wav|mp3)$/,
-        loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'},
+        loader: 'file-loader?name=audio/[path][name].[ext]&context=./app/assets/audios'
+      },
       { test:/bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/, loader: 'imports?jQuery=jquery' },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }

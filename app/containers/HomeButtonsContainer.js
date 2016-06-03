@@ -4,7 +4,7 @@
 var React = require('react');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 var Radium = require('radium');
-
+var SocialIcons = require('../components/SocialIcons');
 
 var HomeButtonsContainer = React.createClass({
   mixins: [ScreenTypeMixin],
@@ -23,7 +23,8 @@ var HomeButtonsContainer = React.createClass({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: this.state.screenType =='DESKTOP' ? 'row' : 'column',
-        width: '100%'
+        width: '100%',
+        flexWrap: this.state.screenType =='DESKTOP' ? 'wrap' : '',
       },
       row: {
         marginTop: this.state.screenType =='DESKTOP' ? '40px' : '10px',
@@ -46,12 +47,6 @@ var HomeButtonsContainer = React.createClass({
         alignItems: 'center',
         marginBottom: this.state.screenType =='DESKTOP' ? '0px' : '10px',
       },
-      social: {
-        color: '#fff',
-        ':hover': {
-          opacity: '0.6'
-        }
-      },
       flexItem: {
         display: 'flex',
         flexBasis: this.state.screenType =='DESKTOP' ? '0' : '',
@@ -66,45 +61,6 @@ var HomeButtonsContainer = React.createClass({
           <p style={styles.homepageDesc}>App de Meditación Guiada</p>
           <div style={styles.flexItem}>
           {this.props.children}
-          </div>
-          <div style={styles.row}>
-            <a href="https://www.facebook.com/yoguinapp/" target="_blank">
-              <span className="fa-stack fa-lg" key="facebook" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-facebook-f fa-stack-1x"></i>
-              </span>
-            </a>
-            <a href="https://twitter.com/yoguinapp" target="_blank">
-              <span className="fa-stack fa-lg" key="twitter" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-twitter fa-stack-1x"></i>
-              </span>
-            </a>
-            <a href="https://www.instagram.com/yoguinapp/" target="_blank">
-              <span className="fa-stack fa-lg" key="instagram" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-instagram fa-stack-1x"></i>
-              </span>
-            </a>
-            <a href="https://es.pinterest.com/yoguinapp/" target="_blank">
-              <span className="fa-stack fa-lg" key="pinterest" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-pinterest fa-stack-1x"></i>
-              </span>
-            </a>
-            <a href="http://yoguin.tumblr.com/" target="_blank">
-              <span className="fa-stack fa-lg" key="tumblr" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-tumblr fa-stack-1x"></i>
-              </span>
-            </a>
-            <a href="mailto:hola@yoguin.com" target="_blank">
-              <span className="fa-stack fa-lg" key="mail" style={styles.social}>
-                <i className="fa fa-square-o fa-stack-2x"></i>
-                <i className="fa fa-envelope-o fa-stack-1x"></i>
-              </span>
-            </a>
-
           </div>
         </div>
       </div>
