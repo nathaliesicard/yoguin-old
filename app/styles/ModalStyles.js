@@ -12,9 +12,10 @@ var ModalStyles = {
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
     background: 'linear-gradient(60deg,#3479dd,#344fdd)',
-    fontFamily: 'Raleway, sans-serif',
+    fontFamily: 'BrandonGrotesque-Medium, sans-serif',
     marginBottom: '15px',
-    color: '#fff'
+    color: '#fff',
+    fontSize: '1.4em'
   }
 };
 

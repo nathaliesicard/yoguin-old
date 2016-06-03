@@ -20,13 +20,14 @@ var styles = {
     background: 'rgb(255, 54, 54)',
     background: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '500',
-    fontFamily: 'Raleway-SemiBold, sans-serif',
+    fontFamily: 'BrandonGrotesque-Medium, sans-serif',
     color: '#333',
-    transition: 'box-shadow .2s ease-in-out'
+    transition: 'box-shadow .2s ease-in-out',
   },
   header: {
     fontWeight: '900',
-    fontSize: '6vmin'
+    fontSize: '5vmin',
+    textTransform: 'uppercase'
   }
 };
 

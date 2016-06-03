@@ -9,7 +9,7 @@ var MeditateButton= require('./MeditateButton');
 var color = require('color');
 var Radium = require('radium');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
-
+var logo = require('../assets/images/logo.png');
 
 
 var Home = React.createClass({
@@ -19,26 +19,33 @@ var Home = React.createClass({
       var styles = {
         homepageBrand: {
           background: 'transparent',
-          fontFamily: 'Cookie-Regular, cursive',
-          fontSize: this.state.screenType =='DESKTOP' ? '7em' : '6em',
-          fontWeight: 900,
+          fontFamily: 'BrandonGrotesque-Medium, sans-serif',
+          fontSize: this.state.screenType =='DESKTOP' ? '6em' : '5em',
           color: '#fff',
-          marginBottom:'0.25em',
+          margin:'0px',
           zIndex: -4
         },
-        homepageDesc: {
-          fontFamily: 'Raleway-SemiBold, sans-serif',
-          fontWeight: this.state.screenType =='DESKTOP' ? 400 : 500,
-          color: '#fff',
-          fontSize: this.state.screenType =='DESKTOP' ? '2em' : '1.5em',
-          zIndex: -4
+        brand: {
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          textAlign: 'center',
+          alignItems: 'center',
+          marginTop: this.state.screenType =='DESKTOP' ? '15px' : '10px',
+        },
+        logo: {
+         width: '100px',
+          height: '58px',
+          alignSelf: 'center'
         }
       };
     
     return (
       <MainContainer>
-        <h1 style={styles.homepageBrand}>Yoguin</h1>
-        <p className='lead' style={styles.homepageDesc}>App de Meditación Guiada</p>
+        <div style={styles.brand}>
+          <img src={logo} alt="Yoguin Logo" style={styles.logo}/>
+          <h1 style={styles.homepageBrand}>Yoguin</h1>
+        </div>
         <MeditateButton><i className="fa fa-plus"></i></MeditateButton>
       </MainContainer>
     );

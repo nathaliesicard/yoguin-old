@@ -7,13 +7,18 @@ var React = require('react');
 var styles = {
   transparentBg: {
     background: 'transparent',
-    zIndex: -4
+    zIndex: -4,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center'
   }
 }
 
 function MainContainer(props){
   return (
-    <div className="col-sm-12 text-center" style={styles.transparentBg}>
+    <div className="col-xs-12 text-center" style={styles.transparentBg}>
       {props.children}
     </div>
   )

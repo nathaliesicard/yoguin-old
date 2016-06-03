@@ -17,8 +17,8 @@ var MeditateButton = React.createClass({
     
     var baseStyle = {
         display: 'block',
-        width:  '4em',
-        height: '4em',
+        width:  '4.5em',
+        height: '4.5em',
         lineHeight: '50px',
         border: '0px',
         borderRadius: '50%',

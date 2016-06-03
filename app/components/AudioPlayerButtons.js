@@ -47,7 +47,6 @@ var styles= {
     fontSize: '20px',
     fontWeight: 'bold',
     color: '#fff',
-    cursor: 'pointer',
     transition: 'box-shadow .2s ease-in-out',
     ':hover': {
       boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)',
@@ -77,6 +76,48 @@ var styles= {
       background: color('#FF686B').lighten(0.2).hexString(),
       boxShadow: '0 0 6px rgba(0,0,0,.16),0 6px 12px rgba(0,0,0,.32)'
     }
+  },
+  download: {
+    width: '120px',
+    height: '120px',
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    lineHeight: '50px',
+    border: '0px',
+    borderRadius: '50%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: 'linear-gradient(60deg, #C3C3C3, #afafaf)',
+    boxShadow: '0 0 3px gray',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    transition: 'box-shadow .2s ease-in-out',
+  },
+  loading: {
+    marginTop: '50px',
+    color: '#3479dd'
+  },
+  ended: {
+    width: '120px',
+    height: '120px',
+    display: 'flex',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    lineHeight: '50px',
+    border: '0px',
+    borderRadius: '50%',
+    textAlign: 'center',
+    textDecoration: 'none',
+    background: 'linear-gradient(60deg, #C3C3C3, #afafaf)',
+    boxShadow: '0 0 3px gray',
+    fontSize: '20px',
+    fontWeight: 'bold',
+    color: '#fff',
+    transition: 'box-shadow .2s ease-in-out',
   },
   modalClose: {
     lineHeight: '40px',
@@ -164,6 +205,20 @@ var StopButton = React.createClass({
   }
 });
 
+var DownloadingStatus = React.createClass({
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <div className="loader">
+        <h3 style={styles.loading}></h3>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    );
+  }
+});
+
 var ModalCloseBtn = React.createClass({
   mixins: [ScreenTypeMixin],
   render: function () {
@@ -189,10 +244,23 @@ var ModalCancelBtn = React.createClass({
   }
 });
 
+var EndedButton = React.createClass({
+  mixins: [ScreenTypeMixin],
+  render: function () {
+    return (
+      <button style={styles.ended}>
+        <i className="fa fa-check"></i>
+      </button>
+    );
+  }
+});
+
 module.exports = {
   PlayButton: Radium(PlayButton),
   PauseButton: Radium(PauseButton),
   StopButton: Radium(StopButton),
+  DownloadingStatus: Radium(DownloadingStatus),
   ModalCloseBtn: Radium(ModalCloseBtn),
-  ModalCancelBtn: Radium(ModalCancelBtn)
+  ModalCancelBtn: Radium(ModalCancelBtn),
+  EndedButton: Radium(EndedButton)
 };

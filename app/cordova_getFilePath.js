@@ -1,3 +1,4 @@
+
 module.exports = function(url, callback) {
   if (typeof FileTransfer == 'undefined') {
     callback(new Error('Device was not ready...'));
@@ -10,9 +11,11 @@ module.exports = function(url, callback) {
 
   var fileTransfer = new FileTransfer();
 
+  console.log('Data directory + filename is: ',cordova.file.dataDirectory + filename);
+  console.log('The URL of the file is: ',url);
   fileTransfer.download(
     url,
-    filename,
+    cordova.file.dataDirectory + filename,
     function(entry) {
       console.log("download complete: " + entry.toURL());
       callback(null, entry.toURL());
@@ -20,10 +23,11 @@ module.exports = function(url, callback) {
     function(error) {
       console.error("download error source " + error.source);
       console.error("download error target " + error.target);
-      console.error("upload error code" + error.code);
+      console.error("download error code" + error.code);
       callback(new Error('download error'));
     }
   );
 
 };
+
 

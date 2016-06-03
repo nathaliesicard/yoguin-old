@@ -8,6 +8,8 @@ var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
 var StopButton = require('../components/AudioPlayerButtons').StopButton;
 var ModalCloseBtn = require('../components/AudioPlayerButtons').ModalCloseBtn;
 var ModalCancelBtn = require('../components/AudioPlayerButtons').ModalCancelBtn;
+var DownloadingStatus = require('../components/AudioPlayerButtons').DownloadingStatus;
+var EndedButton = require('../components/AudioPlayerButtons').EndedButton;
 var Modal = require('react-modal');
 var ModalStyles = require('../styles/ModalStyles');
 var ReactRouter = require('react-router');
@@ -154,7 +156,8 @@ var AudioPlayer = React.createClass({
       </div>);
 
       if (this.state.status == 'DOWNLOADING') {
-        button = <h1>Downloading..</h1>;
+        button = <DownloadingStatus />;
+        text = <p>Cargando</p>;
       }
       else if (this.state.status == 'ERROR') {
         button = <h1>Error..</h1>;
@@ -171,6 +174,7 @@ var AudioPlayer = React.createClass({
       else if (this.state.status == 'ENDED') {
         text = <p>Gracias por utilizar Yoguin</p>;
         stopButton = '';
+        button = <EndedButton />
       }
       else {
         throw new Error('weird status ' + this.state.status);
@@ -257,6 +261,10 @@ var AudioPlayer = React.createClass({
         height: '100%',
         width: '100%',
         flexWrap: 'wrap'
+      },
+      text: {
+        marginTop: this.state.screenType == 'DESKTOP' ? '30px' : '0px',
+        fontSize: '1.3em'
       }
     };
     return(
@@ -268,7 +276,6 @@ var AudioPlayer = React.createClass({
         <div style={styles.header}>
           <h2 style={styles.h2}>{this.props.meditation.name}</h2>
           <h3 style={styles.h3}>{this.props.meditation.quip}</h3>
-          {text}
         </div>
         <div style={styles.button}>
             {button}
@@ -278,7 +285,9 @@ var AudioPlayer = React.createClass({
             timer={this.state.timeupdated}
             duration={this.state.duration}
             status={this.state.status} />
+          <div style={styles.text}>{text}</div>
         </div>
+
         <div style={styles.timer}>
           <Timer timer={this.state.timeupdated}  status={this.state.status} />
         </div>
