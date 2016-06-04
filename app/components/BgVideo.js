@@ -96,7 +96,7 @@ var BgVideo = React.createClass({
 
   componentDidMount: function() {
     this.adjustBgVolumeTo(this.props.volume);
-    console.log('Volume is: ',this.props.volume);
+    //console.log('Volume is: ',this.props.volume);
   },
 
   componentWillUpdate: function(nextProps, nextState) {

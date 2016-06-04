@@ -11,13 +11,13 @@ module.exports = function(url, callback) {
 
   var fileTransfer = new FileTransfer();
 
-  console.log('Data directory + filename is: ',cordova.file.dataDirectory + filename);
-  console.log('The URL of the file is: ',url);
+  //console.log('Data directory + filename is: ',cordova.file.dataDirectory + filename);
+  //console.log('The URL of the file is: ',url);
   fileTransfer.download(
     url,
     cordova.file.dataDirectory + filename,
     function(entry) {
-      console.log("download complete: " + entry.toURL());
+      //console.log("download complete: " + entry.toURL());
       callback(null, entry.toURL());
     },
     function(error) {

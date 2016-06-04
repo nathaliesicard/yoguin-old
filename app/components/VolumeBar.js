@@ -102,7 +102,7 @@ var VolumeBar = React.createClass({
     var containerStartX = container.offset().left;
     var percent = (e.clientX - containerStartX) / container.width();
     percent = percent;
-    console.log('Percent : ',percent);
+    //console.log('Percent : ',percent);
     this.props.adjustVolumeTo(percent);
   },
 

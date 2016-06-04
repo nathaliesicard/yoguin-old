@@ -19,7 +19,7 @@ var MeditationListContainer = React.createClass({
     }
   },
   handleClickForPlay: function(which){
-    console.log('handleClickForPlay ' + which);
+    //console.log('handleClickForPlay ' + which);
     this.context.router.push({
       pathname: '/play/',
       state: {

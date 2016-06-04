@@ -45,6 +45,18 @@ module.exports = {
     filename: "index_bundle.[hash].js",
     path:__dirname + '/dist'
   },
-  plugins: [HTMLWebpackPluginConfig],
+  plugins: [
+    HTMLWebpackPluginConfig,
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: true
+      }
+    })
+  ],
   devtool: 'source-map'
 };

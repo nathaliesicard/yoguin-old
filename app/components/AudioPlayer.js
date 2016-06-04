@@ -47,7 +47,7 @@ var AudioPlayer = React.createClass({
       self.setState({ status: 'NOT_STARTED' });
       
       self.path = path;
-      console.log('Got a path of ', path);
+      //console.log('Got a path of ', path);
       self.meditation.src = path;
     });
 
@@ -111,7 +111,7 @@ var AudioPlayer = React.createClass({
   },
 
   adjustVolumeTo: function(percent) {
-    console.log('adjustVolumeTo formula triggered with the volume: ',percent);
+    //console.log('adjustVolumeTo formula triggered with the volume: ',percent);
     this.setState({ volume: percent });
     if (this.meditation) {
       this.meditation.volume = percent;
@@ -119,7 +119,7 @@ var AudioPlayer = React.createClass({
   },
 
   onStopBtnClick: function() {
-      console.log('onStopBtnClick function ran');
+      //console.log('onStopBtnClick function ran');
       this.setState({
         status: 'IS_PAUSED'
       });
