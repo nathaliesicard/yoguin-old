@@ -9,28 +9,16 @@ var bgVideoSrc = require('../assets/videos/Beach.mp4');
 var bgVideoSrcTwo = require('../assets/videos/Beach.webm');
 var bgImgSrc = require('../assets/images/poster.jpg');
 var VolumeBtn = require('../components/VolumeBtn');
+var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 
-  var styles = {
-    video: {
-      position: 'fixed',
-      right: 0,
-      bottom: 0,
-      width: 'auto',
-      minWidth: '100%',
-      height: 'auto',
-      minHeight: '100%',
-      zIndex: -100
-    }
-  };
+
 
 
 var BgVideo = React.createClass({
-
+  mixins: [ScreenTypeMixin],
   propTypes: {
     volume: React.PropTypes.number.isRequired
   },
-
-
   getInitialState: function (){
     return {
       //duration: 0,
@@ -78,6 +66,30 @@ var BgVideo = React.createClass({
   },
 
   render: function() {
+
+    var styles = {
+      video: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        margin: 'auto',
+        minHeight: '50%',
+        minWidth: '50%',
+        zIndex: -1000,
+        transform: 'translate(-50%, -50%)'
+
+      },
+      container: {
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat'
+      }
+    };
+
     if (this.state.errored) {
       return (
         <img src={bgImgSrc} style={styles.video} />
@@ -85,7 +97,7 @@ var BgVideo = React.createClass({
     }
 
     return (
-      <div>
+      <div style={styles.container}>
       <video loop autoPlay="true" ref="theVideo" poster={bgImgSrc} style={styles.video} onError={this.errored}>
         <source src={bgVideoSrc} type="video/mp4"/>
         <source src={bgVideoSrcTwo} type="video/webm"/>

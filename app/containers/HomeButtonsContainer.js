@@ -58,8 +58,9 @@ var HomeButtonsContainer = React.createClass({
 
     return (
       <div className="col-xs-12" style={styles.base}>
+        <p style={styles.homepageDesc}>App de Meditación Guiada</p>
         <div style={styles.column}>
-          <p style={styles.homepageDesc}>App de Meditación Guiada</p>
+          <p style={styles.flexItem}></p>
           <div style={styles.flexItem}>
           {this.props.children}
           </div>

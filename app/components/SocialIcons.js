@@ -12,6 +12,16 @@ var SocialIcons = React.createClass({
   render: function () {
 
     var styles = {
+      base: {
+        marginTop: this.state.screenType =='DESKTOP' ? '40px' : '10px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: this.state.screenType =='DESKTOP' ? 'center' : 'space-around',
+        flexDirection: 'column',
+        width: '100%',
+        flexBasis: this.state.screenType =='DESKTOP' ? '0' : '',
+        flexGrow: this.state.screenType =='DESKTOP' ? '1' : ''
+      },
       row: {
         marginTop: this.state.screenType =='DESKTOP' ? '40px' : '10px',
         display: 'flex',
@@ -31,7 +41,10 @@ var SocialIcons = React.createClass({
     };
 
     return (
-          <div style={styles.row}>
+          <div style={styles.base}>
+
+              <a href='https://play.google.com/store/apps/details?id=com.yoguin.hola&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Disponible en Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/es-419_badge_web_generic.png' width="250"/></a>
+            <div style={styles.row}>
             <a href="https://www.facebook.com/yoguinapp/" target="_blank">
               <span className="fa-stack fa-lg" key="facebook" style={styles.social}>
                 <i className="fa fa-square-o fa-stack-2x"></i>
@@ -68,6 +81,7 @@ var SocialIcons = React.createClass({
                 <i className="fa fa-envelope-o fa-stack-1x"></i>
               </span>
             </a>
+          </div>
           </div>
 
     )
