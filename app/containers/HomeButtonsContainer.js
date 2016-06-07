@@ -6,9 +6,31 @@ var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
 var Radium = require('radium');
 var SocialIcons = require('../components/SocialIcons');
 
+
+
 var HomeButtonsContainer = React.createClass({
   mixins: [ScreenTypeMixin],
   render: function () {
+
+    function getScreenHeight(state) {
+      if (state == 'DESKTOP') {
+        return '70vh';
+      }  else if (state == 'PHONE') {
+        return '65vh';
+      } else {
+        return '';
+      }
+    }
+
+    function getHomepageDescMargin(state) {
+      if (state == 'DESKTOP') {
+        return '40px';
+      }  else if (state == 'PHONE') {
+        return '0px';
+      } else {
+        return '10px';
+      }
+    }
 
     var styles = {
       base: {
@@ -16,7 +38,7 @@ var HomeButtonsContainer = React.createClass({
         alignItems: 'center',
         justifyContent: 'flex-end',
         flexDirection: 'column',
-        height: this.state.screenType =='DESKTOP' ? '70vh' : '65vh'
+        height: getScreenHeight(this.state.screenType)
       },
       column: {
         display: 'flex',
@@ -45,7 +67,7 @@ var HomeButtonsContainer = React.createClass({
         flexBasis: this.state.screenType =='DESKTOP' ? '0' : '',
         flexGrow: this.state.screenType =='DESKTOP' ? '1' : '',
         alignItems: 'center',
-        marginTop: this.state.screenType =='DESKTOP' ? '40px' : '0px',
+        marginTop: getHomepageDescMargin(this.state.screenType),
         marginBottom: this.state.screenType =='DESKTOP' ? '0px' : '10px'
       },
       flexItem: {
@@ -56,6 +78,13 @@ var HomeButtonsContainer = React.createClass({
       }
     };
 
+    var socialIcons;
+    if (this.state.screenType =='PHONE LAND') {
+      socialIcons = '';
+    } else {
+      socialIcons = <SocialIcons />;
+    }
+
     return (
       <div className="col-xs-12" style={styles.base}>
         <p style={styles.homepageDesc}>App de Meditación Guiada</p>
@@ -64,7 +93,7 @@ var HomeButtonsContainer = React.createClass({
           <div style={styles.flexItem}>
           {this.props.children}
           </div>
-            <SocialIcons />
+          { socialIcons }
         </div>
       </div>
     )
