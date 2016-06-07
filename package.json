@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "start-dev": "webpack-dev-server",
-    "build-cordova": "rm -rf dist ; mv app/getFilePath.js app/web_getFilePath.js; cp app/cordova_getFilePath.js app/getFilePath.js; webpack -p; mv app/web_getFilePath.js app/getFilePath.js",
+    "build-cordova": "rm -rf dist ; mv app/alib.js app/web_alib.js; cp app/cordova_alib.js app/alib.js; webpack -p; mv app/web_alib.js app/alib.js",
     "postinstall": "webpack -p --devtool source-map --output-pathinfo"
   },
   "author": "",

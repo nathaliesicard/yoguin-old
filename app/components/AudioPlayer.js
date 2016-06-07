@@ -8,7 +8,6 @@ var PauseButton = require('../components/AudioPlayerButtons').PauseButton;
 var StopButton = require('../components/AudioPlayerButtons').StopButton;
 var ModalCloseBtn = require('../components/AudioPlayerButtons').ModalCloseBtn;
 var ModalCancelBtn = require('../components/AudioPlayerButtons').ModalCancelBtn;
-var DownloadingStatus = require('../components/AudioPlayerButtons').DownloadingStatus;
 var EndedButton = require('../components/AudioPlayerButtons').EndedButton;
 var Modal = require('react-modal');
 var ModalStyles = require('../styles/ModalStyles');
@@ -18,7 +17,7 @@ var ProgressCircleContainer = require('../containers/ProgressCircleContainer');
 var Timer = require('../components/Timer');
 var VolumeBar = require('../components/VolumeBar');
 var ScreenTypeMixin = require('../mixins/ScreenTypeMixin');
-var getFilePath = require('../getFilePath');
+var alib = require('../alib');
 
 var AudioPlayer = React.createClass({
   mixins: [ ScreenTypeMixin ],
@@ -27,7 +26,7 @@ var AudioPlayer = React.createClass({
   },
   getInitialState: function (){
     return {
-      status: 'DOWNLOADING', // 'DOWNLOADING', 'ERROR', 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
+      status: 'NOT_STARTED', // 'ERROR', 'NOT_STARTED', 'IS_PLAYING', 'IS_PAUSED', 'ENDED'
       modalIsOpen: false,
       timeupdated: 0,
       duration: 0,
@@ -35,27 +34,8 @@ var AudioPlayer = React.createClass({
     }
   },
 
-  componentWillMount: function() {
-    var self = this;
-
-    getFilePath(this.props.meditation.url, function(err, path) {
-      if (err) {
-        console.error('Could not get meditation path ', err);
-        self.setState({ status: 'ERROR' });
-        return;
-      }
-      self.setState({ status: 'NOT_STARTED' });
-      
-      self.path = path;
-      //console.log('Got a path of ', path);
-      self.meditation.src = path;
-    });
-
-
-
-  },
   componentDidMount: function () {
-    this.meditation = new Audio();
+    this.meditation = new Audio(alib.getFilePath(this.props.meditation.url));
     var duration = this.meditation.duration;
     var self = this;
     this.meditation.addEventListener('ended', function(){
@@ -155,11 +135,7 @@ var AudioPlayer = React.createClass({
       </Modal>
       </div>);
 
-      if (this.state.status == 'DOWNLOADING') {
-        button = <DownloadingStatus />;
-        text = <p>Cargando</p>;
-      }
-      else if (this.state.status == 'ERROR') {
+      if (this.state.status == 'ERROR') {
         button = <h1>Error..</h1>;
       }
       else if (this.state.status == 'NOT_STARTED') {

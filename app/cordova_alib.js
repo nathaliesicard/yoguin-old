@@ -1,23 +1,34 @@
+exports.getFilePath = function(url) {
+  var filename = url.substring(url.lastIndexOf('/') + 1);
+  return cordova.file.dataDirectory + filename;
+};
 
-module.exports = function(url, callback) {
+exports.doesExist = function(filename, callback) {
+
+  window.resolveLocalFileSystemURL(filename,
+    function() { callback(null, true) },
+    function() { callback(null, false) }
+  );
+
+};
+
+
+exports.downloadFile = function(url, callback) {
   if (typeof FileTransfer == 'undefined') {
     callback(new Error('Device was not ready...'));
     return;
   }
 
-  // TODO: crappy... we should hash the url instead
-  var filename = url.substring(url.lastIndexOf('/') + 1);
-
+  var path = exports.getFilePath(url);
 
   var fileTransfer = new FileTransfer();
-
   //console.log('Data directory + filename is: ',cordova.file.dataDirectory + filename);
   //console.log('The URL of the file is: ',url);
   fileTransfer.download(
     url,
-    cordova.file.dataDirectory + filename,
+    path,
     function(entry) {
-      //console.log("download complete: " + entry.toURL());
+      console.log("download complete: " + entry.toURL());
       callback(null, entry.toURL());
     },
     function(error) {

@@ -45,8 +45,15 @@ var MeditationListContainer = React.createClass({
       );
     });
 
+    var styles = {
+      base: {
+        height: '100vh',
+        overflow: 'scroll'
+      }
+    };
+    
     return(
-      <div>
+      <div style={styles.base}>
         <MeditationList
           header='Elige una meditación'
         >

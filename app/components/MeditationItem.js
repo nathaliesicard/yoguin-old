@@ -9,7 +9,7 @@ var MeditationItemContainer = require('../containers/MeditationItemContainer');
 var color = require('color');
 var Radium = require('radium');
 var ScreenTypeMixin = require('./../mixins/ScreenTypeMixin');
-
+var alib = require('../alib');
 
 
 var MeditationItem = React.createClass({
@@ -22,6 +22,56 @@ var MeditationItem = React.createClass({
     duration: React.PropTypes.number.isRequired,
     handleClickForPlay: React.PropTypes.func.isRequired
   },
+  getInitialState: function() {
+    return { status: "UNKNOWN" }; // either UNKNOWN, NOT_DOWNLOADED, DOWNLOADING, DOWNLOADED
+  },
+  
+  componentWillMount: function() {
+    var self = this;
+
+    // TODO: crappy... we should hash the url instead
+
+    var filename = alib.getFilePath(this.props.url);
+
+    alib.doesExist(filename, function(err, value) {
+      if (err) {
+        console.error('Could not tell if ', filename, ' is downloaded', err);
+        return;
+      }
+
+      self.setState({ status: value ? "DOWNLOADED" : "NOT_DOWNLOADED" });
+    });
+  },
+  
+  handleClick: function() {
+    var self = this;
+
+
+    if (this.state.status === "UNKNOWN" || this.state.status === "DOWNLOADING") {
+      // do nothing...
+    } else if (this.state.status === "DOWNLOADED") {
+      this.props.handleClickForPlay();
+    } else if (this.state.status === "NOT_DOWNLOADED") {
+      this.setState({status: "DOWNLOADING"});
+
+
+      alib.downloadFile(this.props.url, function(err) {
+        if (err) {
+          console.error('Could download ', self.props.url, err);
+          self.setState({ status: "UKNOWN" });
+          return;
+        }
+
+        self.setState({ status: "DOWNLOADED" });
+      });
+
+    } else {
+      console.error('Unknown status state: ', this.state.status);
+    }
+
+
+  },
+  
   render: function () {
 
       var styles = {
@@ -60,7 +110,7 @@ var MeditationItem = React.createClass({
           marginBottom: this.state.screenType == 'DESKTOP' ? '10px' : '0px',
           fontFamily: 'Lato-Regular, sans-serif'
         },
-        button: {
+        buttonRed: {
           display: 'flex',
           alignItems: 'center',
           alignSelf: 'center',
@@ -73,6 +123,29 @@ var MeditationItem = React.createClass({
           textAlign: 'center',
           textDecoration: 'none',
           background: 'linear-gradient(50deg,#ff5a5f,#ff6a6f)',
+          boxShadow: '0 0 3px gray',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '1em',
+          fontWeight: 'bold',
+          color: '#fff',
+          marginBottom: this.state.screenType == 'DESKTOP' ? '5px' : '1px',
+          transition: 'box-shadow .2s ease-in-out',
+          ':hover': {
+            background: color('#ff7e82').hexString()
+          }
+        },
+        buttonGreen: {
+          display: 'flex',
+          alignItems: 'center',
+          alignSelf: 'center',
+          justifyContent: 'center',
+          width: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
+          height: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
+          lineHeight: '5.5em',
+          border: '0px',
+          borderRadius: '50%',
+          textAlign: 'center',
+          textDecoration: 'none',
+          background: 'linear-gradient(50deg,green,lightgreen)',
           boxShadow: '0 0 3px gray',
           fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '1em',
           fontWeight: 'bold',
@@ -105,16 +178,29 @@ var MeditationItem = React.createClass({
         }
       };
 
+    var button;
+    if (this.state.status === "UNKNOWN") {
+      button = <button style={styles.buttonRed} ></button>;
+    } else if (this.state.status === "DOWNLOADED") {
+      button = <button style={styles.buttonGreen} ><i className="fa fa-arrow-right"></i></button>;
+    } else if (this.state.status === "NOT_DOWNLOADED") {
+      button = <button style={styles.buttonRed} ><i className="fa fa-download"></i></button>;
+    } else if (this.state.status === "DOWNLOADING") {
+      button = <button style={styles.buttonRed} ><i className="fa fa-2x fa-spinner fa-spin"></i></button>;
+    } else {
+      console.error('unknown state status: ', this.state.status);
+    }
+
 
     return (
-      <div style={styles.base} onClick={this.props.handleClickForPlay}>
+      <div style={styles.base} onClick={this.handleClick}>
         <div className="row" key="bg" style={styles.backgroundStyle}>
           <div className="col-xs-9" key="bgLeft" style={styles.bgLeft}>
             <h3 key="title" style={styles.title}>{this.props.name}</h3>
             <p style={styles.quip}>{this.props.quip}</p>
           </div>
           <div className="col-xs-3" key="bgRight" style={styles.bgRight}>
-            <button style={styles.button} ><i className="fa fa-play"></i></button>
+            { button }
             <span style={styles.duration}>{this.props.duration} min</span>
           </div>
         </div>
