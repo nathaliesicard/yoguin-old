@@ -1,7 +1,7 @@
 exports.downloadFile = function(url, callback) {
-  setTimeout(function(){
-    callback(null);
-  }, 2000);
+  // setTimeout(function(){
+     callback(null);
+  // }, 2000);
 };
 
 exports.getFilePath = function(url) {
@@ -9,7 +9,7 @@ exports.getFilePath = function(url) {
 };
 
 exports.doesExist = function(filename, callback) {
-  setTimeout(function(){
-    callback(null, false);
-  }, 2000);
+  // setTimeout(function(){
+     callback(null, true);
+  // }, 2000);
 };

@@ -42,3 +42,4 @@ exports.downloadFile = function(url, callback) {
 };
 
 
+// docs: https://github.com/cfjedimaster/Cordova-Examples/wiki/PhoneGap-Cordova-File-System-FAQ#how-do-i-check-to-see-if-a-file-exists-in-a-directory
