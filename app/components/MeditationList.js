@@ -23,6 +23,7 @@ var styles = {
     fontFamily: 'BrandonGrotesque-Medium, sans-serif',
     color: '#333',
     transition: 'box-shadow .2s ease-in-out',
+    zIndex: 2
   },
   header: {
     fontWeight: '900',

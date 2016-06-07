@@ -8,7 +8,12 @@ window.mobilecheck = function() {
 
 function getScreenType() {
   if (window.mobilecheck() == true) {
-    return 'PHONE';
+    if (window.innerHeight < window.innerWidth){
+      return 'PHONE LAND'
+    }
+    else {
+      return 'PHONE';
+    }
   }
   else {
     return 'DESKTOP';

@@ -15,7 +15,7 @@ var ModalStyles = {
     fontFamily: 'BrandonGrotesque-Medium, sans-serif',
     marginBottom: '15px',
     color: '#fff',
-    fontSize: '1.4em'
+    fontSize: '1.4em',
   }
 };
 

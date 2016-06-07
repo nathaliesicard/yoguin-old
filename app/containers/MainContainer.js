@@ -7,14 +7,14 @@ var React = require('react');
 var styles = {
   transparentBg: {
     background: 'transparent',
-    zIndex: -4,
+    zIndex: 1,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     textAlign: 'center',
     alignItems: 'center'
   }
-}
+};
 
 function MainContainer(props){
   return (
