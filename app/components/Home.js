@@ -46,7 +46,7 @@ var Home = React.createClass({
           <img src={logo} alt="Yoguin Logo" style={styles.logo}/>
           <h1 style={styles.homepageBrand}>Yoguin</h1>
         </div>
-        <MeditateButton><i className="fa fa-plus"></i></MeditateButton>
+        <MeditateButton>Entrar</MeditateButton>
       </MainContainer>
     );
   }

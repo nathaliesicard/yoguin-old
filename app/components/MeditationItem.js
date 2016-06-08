@@ -110,27 +110,27 @@ var MeditationItem = React.createClass({
           marginBottom: this.state.screenType == 'DESKTOP' ? '10px' : '0px',
           fontFamily: 'Lato-Regular, sans-serif'
         },
-        buttonRed: {
+        button: {
           display: 'flex',
           alignItems: 'center',
           alignSelf: 'center',
           justifyContent: 'center',
-          width: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
-          height: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
+          width: this.state.screenType == 'PHONE LAND' ? '3em' : '4.5em',
+          height: this.state.screenType == 'PHONE LAND' ? '3em' : '4.5em',
           lineHeight: '5.5em',
-          border: '0px',
+          border: this.state.screenType == 'PHONE LAND' ? '3px solid #fff' : '4px solid #fff',
           borderRadius: '50%',
           textAlign: 'center',
           textDecoration: 'none',
-          background: 'linear-gradient(50deg,#ff5a5f,#ff6a6f)',
+          background: 'rgba(241,252,245,0.6)',
           boxShadow: '0 0 3px gray',
-          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '1em',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '0.8em',
           fontWeight: 'bold',
           color: '#fff',
           marginBottom: this.state.screenType == 'DESKTOP' ? '5px' : '1px',
           transition: 'box-shadow .2s ease-in-out',
           ':hover': {
-            background: color('#ff7e82').hexString()
+            background: color('#0074d9').lighten(0.2).hexString()
           }
         },
         buttonGreen: {
@@ -138,22 +138,22 @@ var MeditationItem = React.createClass({
           alignItems: 'center',
           alignSelf: 'center',
           justifyContent: 'center',
-          width: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
-          height: this.state.screenType == 'DESKTOP' ? '4.5em' : '3em',
+          width: this.state.screenType == 'PHONE LAND' ? '3em' : '4.5em',
+          height: this.state.screenType == 'PHONE LAND' ? '3em' : '4.5em',
           lineHeight: '5.5em',
-          border: '0px',
+          border: this.state.screenType == 'PHONE LAND' ? '3px solid #fff' : '4px solid #fff',
           borderRadius: '50%',
           textAlign: 'center',
           textDecoration: 'none',
-          background: 'linear-gradient(50deg,green,lightgreen)',
+          background: '#06D6A0',
           boxShadow: '0 0 3px gray',
-          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '1em',
+          fontSize: this.state.screenType == 'DESKTOP' ? '1em' : '0.8em',
           fontWeight: 'bold',
           color: '#fff',
           marginBottom: this.state.screenType == 'DESKTOP' ? '5px' : '1px',
           transition: 'box-shadow .2s ease-in-out',
           ':hover': {
-            background: color('#ff7e82').hexString()
+            background: color('#1edaa9').hexString()
           }
         },
         backgroundStyle: {
@@ -180,13 +180,16 @@ var MeditationItem = React.createClass({
 
     var button;
     if (this.state.status === "UNKNOWN") {
-      button = <button style={styles.buttonRed} ></button>;
+      button = <button style={styles.button} ></button>;
     } else if (this.state.status === "DOWNLOADED") {
-      button = <button style={styles.buttonGreen} ><i className="fa fa-arrow-right"></i></button>;
+      if (this.state.screenType == 'PHONE LAND') {
+        button = <button style={styles.buttonGreen} ><i className="fa fa-angle-double-right"></i></button>;
+      } else {
+      button = <button style={styles.buttonGreen} ><i className="fa fa-2x fa-angle-double-right"></i></button>; }
     } else if (this.state.status === "NOT_DOWNLOADED") {
-      button = <button style={styles.buttonRed} ><i className="fa fa-download"></i></button>;
+      button = <button style={styles.button} ><i className="fa fa-2x fa-download"></i></button>;
     } else if (this.state.status === "DOWNLOADING") {
-      button = <button style={styles.buttonRed} ><i className="fa fa-2x fa-spinner fa-spin"></i></button>;
+      button = <button style={styles.button} ><i className="fa fa-2x fa-spinner fa-spin"></i></button>;
     } else {
       console.error('unknown state status: ', this.state.status);
     }

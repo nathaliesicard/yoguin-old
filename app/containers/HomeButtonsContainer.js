@@ -74,7 +74,8 @@ var HomeButtonsContainer = React.createClass({
         display: 'flex',
         flexBasis: this.state.screenType =='DESKTOP' ? '0' : '',
         flexGrow: this.state.screenType =='DESKTOP' ? '1' : '',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: this.state.screenType =='PHONE LAND' ? '5px' : '',
       }
     };
 
